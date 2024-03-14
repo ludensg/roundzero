@@ -5,7 +5,11 @@
     <title>Custom Map with Landmarks</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <style>
-        #map { height: 100vh; }
+        #map {
+            height: 100vh;
+            -webkit-filter: invert(75%) sepia(50%) hue-rotate(250deg) saturate(500%);
+            filter: invert(75%) sepia(50%) hue-rotate(250deg) saturate(500%);
+        }
     </style>
 </head>
 <body>
