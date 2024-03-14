@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(61, 37, 5);
+}
+
 /* This styles the map container */
 #map {
     height: 100%;
@@ -5,8 +9,122 @@
 
 /* Example of customizing map tile colors with filters (this is very basic and may not achieve the exact desired effect) */
 .leaflet-tile {
-    filter: brightness(50%) sepia(100%) hue-rotate(-50deg) saturate(300%) contrast(1);
+    filter: brightness(30%) contrast(130%) sepia(100%) hue-rotate(270deg) saturate(400%);
 }
 
 /* Sea color cannot be directly controlled here since it's part of the tile images;
    you would need to find or create custom tiles for exact control */
+
+
+
+
+   .crt::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: 
+    linear-gradient(rgba(20, 19, 19, 0.74) 50%, rgba(167, 153, 31, 0.25) 50%), /* Original linear gradient */
+    linear-gradient(90deg, rgba(255, 197, 121, 0.329), rgba(37, 109, 177, 0.527), rgba(0, 0, 255, 0.06)); /* Rotated linear gradient */
+    mix-blend-mode: color-dodge;
+    z-index: 2;
+    background-size: .3vw .3vh;
+    pointer-events: none;
+    top: 0;
+    overflow: hidden;
+  }
+
+  @keyframes flicker {
+    0% {
+        opacity: 0.85;
+    }
+    5% {
+        opacity: 0.95;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    15% {
+        opacity: 0.98;
+    }
+    20% {
+        opacity: 0.75;
+    }
+    25% {
+        opacity: 0.92;
+    }
+    30% {
+        opacity: 0.78;
+    }
+    35% {
+        opacity: 0.92;
+    }
+    40% {
+        opacity: 0.8;
+    }
+    45% {
+        opacity: 0.94;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    55% {
+        opacity: 0.75;
+    }
+    60% {
+        opacity: 0.85;
+    }
+    65% {
+        opacity: 0.92;
+    }
+    70% {
+        opacity: 0.85;
+    }
+    75% {
+        opacity: 0.88;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0.92;
+    }
+    90% {
+        opacity: 0.85;
+    }
+    95% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.88;
+    }
+}
+
+  
+  .crt::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+
+  crt.crt2 {
+    opacity: .3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    position: fixed;
+  }

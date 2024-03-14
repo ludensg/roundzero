@@ -22,6 +22,28 @@
           "type": "Point",
           "coordinates": [-74.044500, 40.689247]
         }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Great Pyramid of Giza",
+          "category": "Monument"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [31.1342, 29.9792]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "The Alhambra",
+          "category": "Historical Site"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.588141, 37.176078]
+        }
       }
     ]
   }
