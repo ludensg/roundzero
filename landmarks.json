@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Landmark 1",
+        "lat": 40.712776,
+        "lng": -74.005974,
+        "imageUrl": "path/to/image1.jpg"
+    },
+    {
+        "name": "Landmark 2",
+        "lat": 51.507351,
+        "lng": -0.127758,
+        "imageUrl": "path/to/image2.jpg"
+    }
+]
