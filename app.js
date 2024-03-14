@@ -1,15 +1,19 @@
-const map = L.map('map').setView([51.505, -0.09], 13);
+// Initialize the map on the "map" div
+var map = L.map('map').setView([20, 0], 2);
 
-L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-    attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
-    maxZoom: 20,
+// Add a tile layer to the map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; OpenStreetMap contributors'
 }).addTo(map);
 
-fetch('landmarks.json')
+// Load and display landmarks from an external JSON file
+fetch('data.json')
     .then(response => response.json())
-    .then(landmarks => {
-        landmarks.forEach(landmark => {
-            const marker = L.marker([landmark.lat, landmark.lng]).addTo(map);
-            marker.bindPopup(`<b>${landmark.name}</b><br><img src="${landmark.imageUrl}" style="width:100%;">`);
-        });
-    });
+    .then(data => {
+        L.geoJSON(data, {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.name);
+            }
+        }).addTo(map);
+    })
+    .catch(error => console.error('Error loading the data:', error));

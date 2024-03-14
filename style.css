@@ -1,0 +1,12 @@
+/* This styles the map container */
+#map {
+    height: 100%;
+}
+
+/* Example of customizing map tile colors with filters (this is very basic and may not achieve the exact desired effect) */
+.leaflet-tile {
+    filter: brightness(50%) sepia(100%) hue-rotate(-50deg) saturate(300%) contrast(1);
+}
+
+/* Sea color cannot be directly controlled here since it's part of the tile images;
+   you would need to find or create custom tiles for exact control */

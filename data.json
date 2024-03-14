@@ -1,0 +1,28 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Eiffel Tower",
+          "category": "Monument"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [2.294481, 48.858370]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Statue of Liberty",
+          "category": "Monument"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-74.044500, 40.689247]
+        }
+      }
+    ]
+  }
+  
