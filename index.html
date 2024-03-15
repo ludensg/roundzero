@@ -259,18 +259,21 @@
     background-size: cover;
     background-repeat: no-repeat;
     transition: all 0.5s ease; /* Smooth transition for moving hands */
+    pointer-events: none;
     z-index: 1; /* Ensure hands are below the red line */
 }
 
 
 
 .left-hand {
+    pointer-events: none;
     left: 0;
     background-image: url('hand2.png'); /* Confirm this path is correct */
     transform: translateY(-50%) translateX(5%); /* Adjust for initial visibility */
 }
 
 .right-hand {
+    pointer-events: none;
     right: 0;
     background-image: url('hand1.png'); /* Confirm this path is correct */
     transform: translateY(-50%) translateX(-5%); /* Adjust for initial visibility */

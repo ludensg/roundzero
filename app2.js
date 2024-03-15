@@ -32,6 +32,6 @@ document.getElementById('manifestoButton').addEventListener('click', function(ev
 
     // Start the download manually
     setTimeout(() => {
-        window.location.href = 'manifesto.pdf';
+        window.location.href = 'manifesto11.pdf';
     }, 1000); // Delay to allow animation to play
 });
