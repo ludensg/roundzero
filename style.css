@@ -1,15 +1,69 @@
 body {
-    background-color: rgb(61, 37, 5);
+    background-color: rgb(17, 15, 13);
 }
+
+#coming-soon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+#message-container {
+    text-align: center;
+    color: white; /* White text for visibility */
+}
+
+#message-container h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#message-container p {
+    font-size: 1.2em;
+}
+
+
+:root {
+    --polygon-color-1: #ffcd78;
+    --polygon-color-2: #373183;
+    --polygon-color-3: #c53427;
+    --polygon-color-4: #c5e1a5;
+    --polygon-color-5: #fff59d;
+    --polygon-color-6: #b39ddb;
+}
+
+.custom-icon img {
+    opacity: 0.2; /* Set default opacity to 50% */
+    transition: opacity 0.25s ease-in-out; /* Smooth transition for opacity change */
+    z-index: 22;
+    transform: scale(.7);
+    transform-origin: bottom;
+    transition: scale 0.25s ease-in-out;
+}
+
+.custom-icon:hover img {
+    opacity: 0.6; /* Full opacity on hover */
+    transform: scale(.9);
+}
+
+
 
 /* This styles the map container */
 #map {
+    position: relative;
     height: 100%;
 }
 
 /* Example of customizing map tile colors with filters (this is very basic and may not achieve the exact desired effect) */
 .leaflet-tile {
-    filter: brightness(30%) contrast(130%) sepia(100%) hue-rotate(270deg) saturate(400%);
+    filter: brightness(25%) contrast(155%) sepia(90%) hue-rotate(20deg) saturate(20%);
 }
 
 /* Sea color cannot be directly controlled here since it's part of the tile images;

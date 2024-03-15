@@ -1,0 +1,99 @@
+{
+  "polygons": [
+    {
+      "id": 1,
+      "startDate": "2024-03-15",
+      "features": [
+        {
+          "name": "Eiffel Tower",
+          "coordinates": [48.858370, 2.294481],
+          "description": "A global cultural icon of France and one of the most recognizable structures in the world.",
+          "imageUrl": "https://example.com/eiffel-tower.jpg",
+          "color": "red"
+        },
+        {
+          "name": "Statue of Liberty",
+          "coordinates": [40.689247, -74.044500],
+          "description": "A colossal neoclassical sculpture on Liberty Island in New York Harbor within New York City.",
+          "imageUrl": "https://example.com/statue-of-liberty.jpg",
+          "color": "red"          
+        },
+        {
+          "name": "Great Pyramid of Giza",
+          "coordinates": [29.9792, 31.1342],
+          "description": "The oldest and largest of the three pyramids in the Giza pyramid complex.",
+          "imageUrl": "https://example.com/great-pyramid.jpg",
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "startDate": "2024-03-25",
+      "features": [
+        {
+          "name": "Puerta del Sol",
+          "coordinates": [40.416775, -3.703790],
+          "description": "One of the best known and busiest places in Madrid, known as the center of the radial network of Spanish roads.",
+          "imageUrl": "https://example.com/puerta-del-sol.jpg",
+          "color": "green"
+        },
+        {
+          "name": "Brandenburg Gate",
+          "coordinates": [52.516274, 13.377704],
+          "description": "An 18th-century neoclassical monument in Berlin, built on the orders of Prussian king Frederick William II.",
+          "imageUrl": "https://example.com/brandenburg-gate.jpg",
+          "color": "green"
+        },
+        {
+          "name": "Tokyo Tower",
+          "coordinates": [35.658580, 139.745433],
+          "description": "A communications and observation tower in the Shiba-koen district of Minato, Tokyo, Japan.",
+          "imageUrl": "https://example.com/tokyo-tower.jpg"  ,
+          "color": "green"          
+        },
+        {
+          "name": "La Previsora",
+          "coordinates": [10.30, -66.53],
+          "description": "Caracas es caracas",
+          "imageUrl": "https://example.com/tokyo-tower.jpg"  ,
+          "color": "teal"          
+        },
+        {
+          "name": "Kremlin",
+          "coordinates": [55.7510, -37.6176],
+          "description": "Damn",
+          "imageUrl": "https://example.com/tokyo-tower.jpg"  ,
+          "color": "teal"          
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "startDate": "2024-04-04",
+      "features": [
+        {
+          "name": "Big Ben",
+          "coordinates": [51.500729, -0.124625],
+          "description": "The nickname for the Great Bell of the clock at the north end of the Palace of Westminster in London.",
+          "imageUrl": "https://example.com/big-ben.jpg",
+          "color": "blue"
+        },
+        {
+          "name": "Hollywood Sign",
+          "coordinates": [34.134115, -118.321548],
+          "description": "An American landmark and cultural icon overlooking Hollywood, Los Angeles.",
+          "imageUrl": "https://example.com/hollywood-sign.jpg",
+          "color": "purple"
+        },
+        {
+          "name": "Sydney Opera House",
+          "coordinates": [-33.856784, 151.215297],
+          "description": "A multi-venue performing arts centre at Sydney Harbour, known for its unique use of a series of gleaming white sail-shaped shells as its roof structure.",
+          "imageUrl": "https://example.com/sydney-opera-house.jpg",
+          "color": "yellow"
+        }
+      ]
+    }
+  ]
+}
