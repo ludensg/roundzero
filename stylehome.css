@@ -1,0 +1,308 @@
+
+@font-face {
+    font-family: 'helvbold';
+    src: url('/fonts/Helvetica Bold Condensed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'helvcomp';
+    src: url('/fonts/Helvetica Ultra Compressed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'helvlight';
+    src: url('/fonts/Helvetica Light Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bitsumishi';
+    src: url('/fonts/bitsumishi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .game-of-life::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle, #7b1fa2 1px, transparent 1px),
+                radial-gradient(circle, #7b1fa2 1px, transparent 1px),
+                radial-gradient(circle, #7b1fa2 1px, transparent 1px),
+                radial-gradient(circle, #7b1fa2 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px, 0 15px, 15px 0;
+            
+            /* Randomly create the appearance of "active" cells */
+            box-shadow: 
+                100px 200px #7b1fa2, 200px 300px #7b1fa2, 400px 500px #7b1fa2,
+                600px 100px #7b1fa2, 800px 200px #7b1fa2, 500px 300px #7b1fa2;
+            animation: blink 3s infinite;
+        }
+            .buttons-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Adjust the space between buttons */
+    }
+
+    .hero-title, .credit-text {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+    .hero-title {
+    display: inline-block; /* Necessary for aligning spans correctly */
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    margin-top: 20vh;
+}
+
+.hero-title span {
+    display: inline-block;
+    animation: wave 2s infinite;
+    animation-delay: calc(var(--i) * 0.1s); /* Delay based on the child index */
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+
+    .credit-text {
+        bottom: 10px;
+    }
+
+    .fancy-button {
+        display: inline-block;
+        margin: 20px;
+        padding: 10px 20px;
+        background-color: #7b1fa2;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .fancy-button:hover {
+        background-color: #9c27b0;
+    }
+
+        
+
+        .credit-text {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+
+   .crt::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: 
+    linear-gradient(rgba(20, 19, 19, 0.74) 50%, rgba(167, 153, 31, 0.25) 50%), /* Original linear gradient */
+    linear-gradient(90deg, rgba(255, 197, 121, 0.329), rgba(37, 109, 177, 0.527), rgba(0, 0, 255, 0.06)); /* Rotated linear gradient */
+    mix-blend-mode: color-dodge;
+    z-index: 2;
+    background-size: .3vw .3vh;
+    pointer-events: none;
+    top: 0;
+    overflow: hidden;
+  }
+
+  @keyframes flicker {
+    0% {
+        opacity: 0.85;
+    }
+    5% {
+        opacity: 0.95;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    15% {
+        opacity: 0.98;
+    }
+    20% {
+        opacity: 0.75;
+    }
+    25% {
+        opacity: 0.92;
+    }
+    30% {
+        opacity: 0.78;
+    }
+    35% {
+        opacity: 0.92;
+    }
+    40% {
+        opacity: 0.8;
+    }
+    45% {
+        opacity: 0.94;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    55% {
+        opacity: 0.75;
+    }
+    60% {
+        opacity: 0.85;
+    }
+    65% {
+        opacity: 0.92;
+    }
+    70% {
+        opacity: 0.85;
+    }
+    75% {
+        opacity: 0.88;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0.92;
+    }
+    90% {
+        opacity: 0.85;
+    }
+    95% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.88;
+    }
+}
+
+  
+  .crt::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+
+  crt.crt2 {
+    opacity: .3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    position: fixed;
+  }
+    .hand {
+    position: fixed;
+    top: 50%;
+    width: 40%;
+    height: 100%; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease; /* Smooth transition for moving hands */
+        pointer-events: none;
+
+    z-index: 1; /* Ensure hands are below the red line */
+}
+
+
+
+.left-hand {
+    pointer-events: none;
+    left: 0;
+    background-image: url('hand2.png'); /* Confirm this path is correct */
+    transform: translateY(-50%) translateX(5%); /* Adjust for initial visibility */
+}
+
+.right-hand {
+    pointer-events: none;
+    right: 0;
+    background-image: url('hand1.png'); /* Confirm this path is correct */
+    transform: translateY(-50%) translateX(-5%); /* Adjust for initial visibility */
+}
+
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px){
+    .hand {
+        top: 35%;
+        height: 35%; /* Adjust based on your image size */
+
+    width: 100%;
+    
+}
+
+    .left-hand {
+        transform: scale(.5); /* Adjust for initial visibility */
+        transform: translateX(-60%); /* Adjust for initial visibility */
+
+
+}
+
+.right-hand {
+        transform: scale(.5); /* Adjust for initial visibility */
+        transform:translateX(40%); /* Adjust for initial visibility */
+
+}
+}
+
+
+#manifestoButton:hover ~ #hands-container .left-hand {
+    transform: translateX(400%); /* Move left hand closer on hover */
+}
+
+#manifestoButton:hover ~ #hands-container .right-hand {
+    transform: translateX(-400%); /* Move right hand closer on hover */
+}

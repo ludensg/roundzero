@@ -29,18 +29,42 @@ body {
     font-size: 1.2em;
 }
 
+.marker-tooltip {
+    background-color: rgba(244, 209, 112, 0.834);
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+    font-size: 14px;
+    color: #333;
+}
+
+
 
 :root {
-    --polygon-color-1: #ffcd78;
-    --polygon-color-2: #373183;
-    --polygon-color-3: #c53427;
-    --polygon-color-4: #c5e1a5;
-    --polygon-color-5: #fff59d;
-    --polygon-color-6: #b39ddb;
+    --polygon-color-1: #7333a0;
+    --polygon-color-2: #dbb969de;
+    --polygon-color-3: #a21f5a;
+    --polygon-color-4: #8ac5e9;
+    --polygon-color-5: #444193;
+    --polygon-color-6: #0c8e76;
+    --polygon-color-7: #9dc5db;
+    --polygon-color-8: #78122ac8;
+
+    --bright-polygon-color-1: #9c6fbda2;
+    --bright-polygon-color-2: #cdbe9cde;
+    --bright-polygon-color-3: #c88ba6b4;
+    --bright-polygon-color-4: #b0cadbab;
+    --bright-polygon-color-5: rgba(134, 133, 184, 0.696);
+    --bright-polygon-color-6: #7bb7ac87;
+    --bright-polygon-color-7: #8fa1ab9c;
+    --bright-polygon-color-8: #c5a0a97c;
+
+
 }
 
 .custom-icon img {
-    opacity: 0.2; /* Set default opacity to 50% */
+    opacity: 0.4; /* Set default opacity to 50% */
     transition: opacity 0.25s ease-in-out; /* Smooth transition for opacity change */
     z-index: 22;
     transform: scale(.7);
@@ -49,7 +73,7 @@ body {
 }
 
 .custom-icon:hover img {
-    opacity: 0.6; /* Full opacity on hover */
+    opacity: 0.7; /* Full opacity on hover */
     transform: scale(.9);
 }
 
@@ -182,3 +206,26 @@ body {
     display: block;
     position: fixed;
   }
+
+
+  @keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: .7;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.pulsing-circle {
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+    margin-left: -10px; /* Half of width to center the div on the coordinate */
+    margin-top: -10px; /* Half of height to center the div on the coordinate */
+    border-radius: 100%;
+    background-color: #3388ff; /* Example color */
+    animation: pulse 2s infinite;
+}

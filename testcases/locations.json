@@ -1,0 +1,139 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "date": "2024-03-15",
+      "coordinates": [48.858370, 2.294481],
+      "name": "Eiffel Tower",
+      "description": "A global cultural icon of France and one of the most recognizable structures in the world.",
+      "imageUrl": "https://example.com/eiffel-tower.jpg",
+      "color": "red"
+    },
+    {
+      "id": 2,
+      "date": "2024-03-15",
+      "coordinates": [40.689247, -74.044500],
+      "name": "Statue of Liberty",
+      "description": "A colossal neoclassical sculpture on Liberty Island in New York Harbor within New York City.",
+      "imageUrl": "https://example.com/statue-of-liberty.jpg",
+      "color": "red"
+    },
+    {
+      "id": 3,
+      "date": "2024-03-15",
+      "coordinates": [29.9792, 31.1342],
+      "name": "Great Pyramid of Giza",
+      "description": "The oldest and largest of the three pyramids in the Giza pyramid complex.",
+      "imageUrl": "https://example.com/great-pyramid.jpg",
+      "color": "red"
+    },
+    {
+      "id": 4,
+      "date": "2024-03-25",
+      "coordinates": [40.416775, -3.703790],
+      "name": "Puerta del Sol",
+      "description": "One of the best known and busiest places in Madrid, known as the center of the radial network of Spanish roads.",
+      "imageUrl": "https://example.com/puerta-del-sol.jpg",
+      "color": "green"
+    },
+    {
+      "id": 5,
+      "date": "2024-03-25",
+      "coordinates": [52.516274, 13.377704],
+      "name": "Brandenburg Gate",
+      "description": "An 18th-century neoclassical monument in Berlin, built on the orders of Prussian king Frederick William II.",
+      "imageUrl": "https://example.com/brandenburg-gate.jpg",
+      "color": "green"
+    },
+    {
+      "id": 6,
+      "date": "2024-03-25",
+      "coordinates": [35.658580, 139.745433],
+      "name": "Tokyo Tower",
+      "description": "A communications and observation tower in the Shiba-koen district of Minato, Tokyo, Japan.",
+      "imageUrl": "https://example.com/tokyo-tower.jpg",
+      "color": "green"
+    },
+    {
+      "id": 7,
+      "date": "2024-03-25",
+      "coordinates": [10.30, -66.53],
+      "name": "La Previsora",
+      "description": "Caracas es caracas",
+      "imageUrl": "https://example.com/tokyo-tower.jpg",
+      "color": "teal"
+    },
+    {
+      "id": 8,
+      "date": "2024-03-25",
+      "coordinates": [55.7510, -37.6176],
+      "name": "Kremlin",
+      "description": "Damn",
+      "imageUrl": "https://example.com/tokyo-tower.jpg",
+      "color": "teal"
+    },
+    {
+      "id": 9,
+      "date": "2024-04-04",
+      "coordinates": [51.500729, -0.124625],
+      "name": "Big Ben",
+      "description": "The nickname for the Great Bell of the clock at the north end of the Palace of Westminster in London.",
+      "imageUrl": "https://example.com/big-ben.jpg",
+      "color": "blue"
+    },
+    {
+      "id": 10,
+      "date": "2024-04-04",
+      "coordinates": [34.134115, -118.321548],
+      "name": "Hollywood Sign",
+      "description": "An American landmark and cultural icon overlooking Hollywood, Los Angeles.",
+      "imageUrl": "https://example.com/hollywood-sign.jpg",
+      "color": "purple"
+    },
+    {
+      "id": 11,
+      "date": "2024-04-04",
+      "coordinates": [-33.856784, 151.215297],
+      "name": "Sydney Opera House",
+      "description": "A multi-venue performing arts centre at Sydney Harbour, known for its unique use of a series of gleaming white sail-shaped shells as its roof structure.",
+      "imageUrl": "https://example.com/sydney-opera-house.jpg",
+      "color": "yellow"
+    },
+    {
+      "id": 12,
+      "date": "2026-04-04",
+      "coordinates": [-43.856784, 31.215297],
+      "name": "AAAe",
+      "description": "A multi-venue performing arts centre at Sydney Harbour, known for its unique use of a series of gleaming white sail-shaped shells as its roof structure.",
+      "imageUrl": "https://example.com/sydney-opera-house.jpg",
+      "color": "yellow"
+    },
+    {
+      "id": 13,
+      "date": "2027-04-04",
+      "coordinates": [-343.856784, 231.215297],
+      "name": "BBB",
+      "description": "A multi-venue performing arts centre at Sydney Harbour, known for its unique use of a series of gleaming white sail-shaped shells as its roof structure.",
+      "imageUrl": "https://example.com/sydney-opera-house.jpg",
+      "color": "yellow"
+    },
+    {
+      "id": 14,
+      "date": "2027-04-04",
+      "coordinates": [443.856784,287.215297],
+      "name": "AAAe",
+      "description": "A multi-venue performing arts centre at Sydney Harbour, known for its unique use of a series of gleaming white sail-shaped shells as its roof structure.",
+      "imageUrl": "https://example.com/sydney-opera-house.jpg",
+      "color": "yellow"
+    },
+    {
+      "id": 15,
+      "date": "2027-04-04",
+      "coordinates": [23.856784,87.215297],
+      "name": "AAAe",
+      "description": "A multi-venue performing arts centre at Sydney Harbour, known for its unique use of a series of gleaming white sail-shaped shells as its roof structure.",
+      "imageUrl": "https://example.com/sydney-opera-house.jpg",
+      "color": "yellow"
+    }
+  ]
+}

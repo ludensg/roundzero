@@ -1,0 +1,37 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "date": "2024-03-15",
+            "time": "5:25:32 P.M.",
+            "coordinates": [
+                25.797595756046682, -80.13015116259744
+            ],
+            "name": "The Bass Museum",
+            "description": "Social Assembly room bookshelf.",
+            "color": "yellow"
+        },
+        {
+            "id": 2,
+            "date": "2024-03-15",
+            "time": "6:14:45 P.M.",
+            "coordinates": [
+                25.79876757210442, -80.21414006259742
+            ],
+            "name": "The Rubell Museum",
+            "description": "Room with Cattelan, Hirst, Koons, and Ligon.",
+            "color": "yellow"
+        },
+        {
+            "id": 3,
+            "date": "2024-03-17",
+            "time": "5:21:46 P.M.",
+            "coordinates": [
+                25.814761444958755, -80.19444172312066
+            ],
+            "name": "The Institute of Contemporary Art, Miami",
+            "description": "On a Charles Gaines piece.",
+            "color": "yellow"
+        }
+    ]
+}

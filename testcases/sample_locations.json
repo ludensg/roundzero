@@ -1,0 +1,1276 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "date": "2024-03-15",
+            "coordinates": [
+                20.0,
+                0.0
+            ],
+            "name": "Location 1",
+            "description": "Description for location 1.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 2,
+            "date": "2024-03-15",
+            "coordinates": [
+                21.0,
+                0.0
+            ],
+            "name": "Location 2",
+            "description": "Description for location 2.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 3,
+            "date": "2024-03-15",
+            "coordinates": [
+                22.0,
+                0.0
+            ],
+            "name": "Location 3",
+            "description": "Description for location 3.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 4,
+            "date": "2024-03-25",
+            "coordinates": [
+                20.0,
+                0.2777777777777778
+            ],
+            "name": "Location 4",
+            "description": "Description for location 4.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 5,
+            "date": "2024-03-25",
+            "coordinates": [
+                21.0,
+                0.2777777777777778
+            ],
+            "name": "Location 5",
+            "description": "Description for location 5.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 6,
+            "date": "2024-03-25",
+            "coordinates": [
+                22.0,
+                0.2777777777777778
+            ],
+            "name": "Location 6",
+            "description": "Description for location 6.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 7,
+            "date": "2024-04-04",
+            "coordinates": [
+                20.0,
+                0.5555555555555556
+            ],
+            "name": "Location 7",
+            "description": "Description for location 7.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 8,
+            "date": "2024-04-04",
+            "coordinates": [
+                21.0,
+                0.5555555555555556
+            ],
+            "name": "Location 8",
+            "description": "Description for location 8.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 9,
+            "date": "2024-04-04",
+            "coordinates": [
+                22.0,
+                0.5555555555555556
+            ],
+            "name": "Location 9",
+            "description": "Description for location 9.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 10,
+            "date": "2024-04-14",
+            "coordinates": [
+                20.0,
+                0.8333333333333334
+            ],
+            "name": "Location 10",
+            "description": "Description for location 10.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 11,
+            "date": "2024-04-14",
+            "coordinates": [
+                21.0,
+                0.8333333333333334
+            ],
+            "name": "Location 11",
+            "description": "Description for location 11.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 12,
+            "date": "2024-04-14",
+            "coordinates": [
+                22.0,
+                0.8333333333333334
+            ],
+            "name": "Location 12",
+            "description": "Description for location 12.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 13,
+            "date": "2024-04-24",
+            "coordinates": [
+                20.0,
+                1.1111111111111112
+            ],
+            "name": "Location 13",
+            "description": "Description for location 13.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 14,
+            "date": "2024-04-24",
+            "coordinates": [
+                21.0,
+                1.1111111111111112
+            ],
+            "name": "Location 14",
+            "description": "Description for location 14.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 15,
+            "date": "2024-04-24",
+            "coordinates": [
+                22.0,
+                1.1111111111111112
+            ],
+            "name": "Location 15",
+            "description": "Description for location 15.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 16,
+            "date": "2024-05-04",
+            "coordinates": [
+                20.0,
+                1.3888888888888888
+            ],
+            "name": "Location 16",
+            "description": "Description for location 16.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 17,
+            "date": "2024-05-04",
+            "coordinates": [
+                21.0,
+                1.3888888888888888
+            ],
+            "name": "Location 17",
+            "description": "Description for location 17.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 18,
+            "date": "2024-05-04",
+            "coordinates": [
+                22.0,
+                1.3888888888888888
+            ],
+            "name": "Location 18",
+            "description": "Description for location 18.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 19,
+            "date": "2024-05-14",
+            "coordinates": [
+                20.0,
+                1.6666666666666667
+            ],
+            "name": "Location 19",
+            "description": "Description for location 19.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 20,
+            "date": "2024-05-14",
+            "coordinates": [
+                21.0,
+                1.6666666666666667
+            ],
+            "name": "Location 20",
+            "description": "Description for location 20.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 21,
+            "date": "2024-05-14",
+            "coordinates": [
+                22.0,
+                1.6666666666666667
+            ],
+            "name": "Location 21",
+            "description": "Description for location 21.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 22,
+            "date": "2024-05-24",
+            "coordinates": [
+                20.0,
+                1.9444444444444444
+            ],
+            "name": "Location 22",
+            "description": "Description for location 22.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 23,
+            "date": "2024-05-24",
+            "coordinates": [
+                21.0,
+                1.9444444444444444
+            ],
+            "name": "Location 23",
+            "description": "Description for location 23.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 24,
+            "date": "2024-05-24",
+            "coordinates": [
+                22.0,
+                1.9444444444444444
+            ],
+            "name": "Location 24",
+            "description": "Description for location 24.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 25,
+            "date": "2024-06-03",
+            "coordinates": [
+                20.0,
+                2.2222222222222223
+            ],
+            "name": "Location 25",
+            "description": "Description for location 25.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 26,
+            "date": "2024-06-03",
+            "coordinates": [
+                21.0,
+                2.2222222222222223
+            ],
+            "name": "Location 26",
+            "description": "Description for location 26.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 27,
+            "date": "2024-06-03",
+            "coordinates": [
+                22.0,
+                2.2222222222222223
+            ],
+            "name": "Location 27",
+            "description": "Description for location 27.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 28,
+            "date": "2024-06-13",
+            "coordinates": [
+                20.0,
+                2.5
+            ],
+            "name": "Location 28",
+            "description": "Description for location 28.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 29,
+            "date": "2024-06-13",
+            "coordinates": [
+                21.0,
+                2.5
+            ],
+            "name": "Location 29",
+            "description": "Description for location 29.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 30,
+            "date": "2024-06-13",
+            "coordinates": [
+                22.0,
+                2.5
+            ],
+            "name": "Location 30",
+            "description": "Description for location 30.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 31,
+            "date": "2024-06-23",
+            "coordinates": [
+                20.0,
+                2.7777777777777777
+            ],
+            "name": "Location 31",
+            "description": "Description for location 31.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 32,
+            "date": "2024-06-23",
+            "coordinates": [
+                21.0,
+                2.7777777777777777
+            ],
+            "name": "Location 32",
+            "description": "Description for location 32.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 33,
+            "date": "2024-06-23",
+            "coordinates": [
+                22.0,
+                2.7777777777777777
+            ],
+            "name": "Location 33",
+            "description": "Description for location 33.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 34,
+            "date": "2024-07-03",
+            "coordinates": [
+                20.0,
+                3.0555555555555554
+            ],
+            "name": "Location 34",
+            "description": "Description for location 34.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 35,
+            "date": "2024-07-03",
+            "coordinates": [
+                21.0,
+                3.0555555555555554
+            ],
+            "name": "Location 35",
+            "description": "Description for location 35.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 36,
+            "date": "2024-07-03",
+            "coordinates": [
+                22.0,
+                3.0555555555555554
+            ],
+            "name": "Location 36",
+            "description": "Description for location 36.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 37,
+            "date": "2024-07-13",
+            "coordinates": [
+                20.0,
+                3.3333333333333335
+            ],
+            "name": "Location 37",
+            "description": "Description for location 37.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 38,
+            "date": "2024-07-13",
+            "coordinates": [
+                21.0,
+                3.3333333333333335
+            ],
+            "name": "Location 38",
+            "description": "Description for location 38.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 39,
+            "date": "2024-07-13",
+            "coordinates": [
+                22.0,
+                3.3333333333333335
+            ],
+            "name": "Location 39",
+            "description": "Description for location 39.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 40,
+            "date": "2024-07-23",
+            "coordinates": [
+                20.0,
+                3.611111111111111
+            ],
+            "name": "Location 40",
+            "description": "Description for location 40.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 41,
+            "date": "2024-07-23",
+            "coordinates": [
+                21.0,
+                3.611111111111111
+            ],
+            "name": "Location 41",
+            "description": "Description for location 41.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 42,
+            "date": "2024-07-23",
+            "coordinates": [
+                22.0,
+                3.611111111111111
+            ],
+            "name": "Location 42",
+            "description": "Description for location 42.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 43,
+            "date": "2024-08-02",
+            "coordinates": [
+                20.0,
+                3.888888888888889
+            ],
+            "name": "Location 43",
+            "description": "Description for location 43.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 44,
+            "date": "2024-08-02",
+            "coordinates": [
+                21.0,
+                3.888888888888889
+            ],
+            "name": "Location 44",
+            "description": "Description for location 44.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 45,
+            "date": "2024-08-02",
+            "coordinates": [
+                22.0,
+                3.888888888888889
+            ],
+            "name": "Location 45",
+            "description": "Description for location 45.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 46,
+            "date": "2024-08-12",
+            "coordinates": [
+                20.0,
+                4.166666666666667
+            ],
+            "name": "Location 46",
+            "description": "Description for location 46.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 47,
+            "date": "2024-08-12",
+            "coordinates": [
+                21.0,
+                4.166666666666667
+            ],
+            "name": "Location 47",
+            "description": "Description for location 47.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 48,
+            "date": "2024-08-12",
+            "coordinates": [
+                22.0,
+                4.166666666666667
+            ],
+            "name": "Location 48",
+            "description": "Description for location 48.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 49,
+            "date": "2024-08-22",
+            "coordinates": [
+                20.0,
+                4.444444444444445
+            ],
+            "name": "Location 49",
+            "description": "Description for location 49.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 50,
+            "date": "2024-08-22",
+            "coordinates": [
+                21.0,
+                4.444444444444445
+            ],
+            "name": "Location 50",
+            "description": "Description for location 50.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 51,
+            "date": "2024-08-22",
+            "coordinates": [
+                22.0,
+                4.444444444444445
+            ],
+            "name": "Location 51",
+            "description": "Description for location 51.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 52,
+            "date": "2024-09-01",
+            "coordinates": [
+                20.0,
+                4.722222222222222
+            ],
+            "name": "Location 52",
+            "description": "Description for location 52.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 53,
+            "date": "2024-09-01",
+            "coordinates": [
+                21.0,
+                4.722222222222222
+            ],
+            "name": "Location 53",
+            "description": "Description for location 53.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 54,
+            "date": "2024-09-01",
+            "coordinates": [
+                22.0,
+                4.722222222222222
+            ],
+            "name": "Location 54",
+            "description": "Description for location 54.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 55,
+            "date": "2024-09-11",
+            "coordinates": [
+                20.0,
+                5.0
+            ],
+            "name": "Location 55",
+            "description": "Description for location 55.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 56,
+            "date": "2024-09-11",
+            "coordinates": [
+                21.0,
+                5.0
+            ],
+            "name": "Location 56",
+            "description": "Description for location 56.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 57,
+            "date": "2024-09-11",
+            "coordinates": [
+                22.0,
+                5.0
+            ],
+            "name": "Location 57",
+            "description": "Description for location 57.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 58,
+            "date": "2024-09-21",
+            "coordinates": [
+                20.0,
+                5.277777777777778
+            ],
+            "name": "Location 58",
+            "description": "Description for location 58.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 59,
+            "date": "2024-09-21",
+            "coordinates": [
+                21.0,
+                5.277777777777778
+            ],
+            "name": "Location 59",
+            "description": "Description for location 59.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 60,
+            "date": "2024-09-21",
+            "coordinates": [
+                22.0,
+                5.277777777777778
+            ],
+            "name": "Location 60",
+            "description": "Description for location 60.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 61,
+            "date": "2024-10-01",
+            "coordinates": [
+                20.0,
+                5.555555555555555
+            ],
+            "name": "Location 61",
+            "description": "Description for location 61.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 62,
+            "date": "2024-10-01",
+            "coordinates": [
+                21.0,
+                5.555555555555555
+            ],
+            "name": "Location 62",
+            "description": "Description for location 62.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 63,
+            "date": "2024-10-01",
+            "coordinates": [
+                22.0,
+                5.555555555555555
+            ],
+            "name": "Location 63",
+            "description": "Description for location 63.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 64,
+            "date": "2024-10-11",
+            "coordinates": [
+                20.0,
+                5.833333333333333
+            ],
+            "name": "Location 64",
+            "description": "Description for location 64.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 65,
+            "date": "2024-10-11",
+            "coordinates": [
+                21.0,
+                5.833333333333333
+            ],
+            "name": "Location 65",
+            "description": "Description for location 65.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 66,
+            "date": "2024-10-11",
+            "coordinates": [
+                22.0,
+                5.833333333333333
+            ],
+            "name": "Location 66",
+            "description": "Description for location 66.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 67,
+            "date": "2024-10-21",
+            "coordinates": [
+                20.0,
+                6.111111111111111
+            ],
+            "name": "Location 67",
+            "description": "Description for location 67.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 68,
+            "date": "2024-10-21",
+            "coordinates": [
+                21.0,
+                6.111111111111111
+            ],
+            "name": "Location 68",
+            "description": "Description for location 68.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 69,
+            "date": "2024-10-21",
+            "coordinates": [
+                22.0,
+                6.111111111111111
+            ],
+            "name": "Location 69",
+            "description": "Description for location 69.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 70,
+            "date": "2024-10-31",
+            "coordinates": [
+                20.0,
+                6.388888888888889
+            ],
+            "name": "Location 70",
+            "description": "Description for location 70.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 71,
+            "date": "2024-10-31",
+            "coordinates": [
+                21.0,
+                6.388888888888889
+            ],
+            "name": "Location 71",
+            "description": "Description for location 71.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 72,
+            "date": "2024-10-31",
+            "coordinates": [
+                22.0,
+                6.388888888888889
+            ],
+            "name": "Location 72",
+            "description": "Description for location 72.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 73,
+            "date": "2024-11-10",
+            "coordinates": [
+                20.0,
+                6.666666666666667
+            ],
+            "name": "Location 73",
+            "description": "Description for location 73.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 74,
+            "date": "2024-11-10",
+            "coordinates": [
+                21.0,
+                6.666666666666667
+            ],
+            "name": "Location 74",
+            "description": "Description for location 74.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 75,
+            "date": "2024-11-10",
+            "coordinates": [
+                22.0,
+                6.666666666666667
+            ],
+            "name": "Location 75",
+            "description": "Description for location 75.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 76,
+            "date": "2024-11-20",
+            "coordinates": [
+                20.0,
+                6.944444444444445
+            ],
+            "name": "Location 76",
+            "description": "Description for location 76.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 77,
+            "date": "2024-11-20",
+            "coordinates": [
+                21.0,
+                6.944444444444445
+            ],
+            "name": "Location 77",
+            "description": "Description for location 77.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 78,
+            "date": "2024-11-20",
+            "coordinates": [
+                22.0,
+                6.944444444444445
+            ],
+            "name": "Location 78",
+            "description": "Description for location 78.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 79,
+            "date": "2024-11-30",
+            "coordinates": [
+                20.0,
+                7.222222222222222
+            ],
+            "name": "Location 79",
+            "description": "Description for location 79.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 80,
+            "date": "2024-11-30",
+            "coordinates": [
+                21.0,
+                7.222222222222222
+            ],
+            "name": "Location 80",
+            "description": "Description for location 80.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 81,
+            "date": "2024-11-30",
+            "coordinates": [
+                22.0,
+                7.222222222222222
+            ],
+            "name": "Location 81",
+            "description": "Description for location 81.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 82,
+            "date": "2024-12-10",
+            "coordinates": [
+                20.0,
+                7.5
+            ],
+            "name": "Location 82",
+            "description": "Description for location 82.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 83,
+            "date": "2024-12-10",
+            "coordinates": [
+                21.0,
+                7.5
+            ],
+            "name": "Location 83",
+            "description": "Description for location 83.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 84,
+            "date": "2024-12-10",
+            "coordinates": [
+                22.0,
+                7.5
+            ],
+            "name": "Location 84",
+            "description": "Description for location 84.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 85,
+            "date": "2024-12-20",
+            "coordinates": [
+                20.0,
+                7.777777777777778
+            ],
+            "name": "Location 85",
+            "description": "Description for location 85.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 86,
+            "date": "2024-12-20",
+            "coordinates": [
+                21.0,
+                7.777777777777778
+            ],
+            "name": "Location 86",
+            "description": "Description for location 86.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 87,
+            "date": "2024-12-20",
+            "coordinates": [
+                22.0,
+                7.777777777777778
+            ],
+            "name": "Location 87",
+            "description": "Description for location 87.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 88,
+            "date": "2024-12-30",
+            "coordinates": [
+                20.0,
+                8.055555555555555
+            ],
+            "name": "Location 88",
+            "description": "Description for location 88.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 89,
+            "date": "2024-12-30",
+            "coordinates": [
+                21.0,
+                8.055555555555555
+            ],
+            "name": "Location 89",
+            "description": "Description for location 89.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 90,
+            "date": "2024-12-30",
+            "coordinates": [
+                22.0,
+                8.055555555555555
+            ],
+            "name": "Location 90",
+            "description": "Description for location 90.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 91,
+            "date": "2025-01-09",
+            "coordinates": [
+                20.0,
+                8.333333333333334
+            ],
+            "name": "Location 91",
+            "description": "Description for location 91.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 92,
+            "date": "2025-01-09",
+            "coordinates": [
+                21.0,
+                8.333333333333334
+            ],
+            "name": "Location 92",
+            "description": "Description for location 92.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 93,
+            "date": "2025-01-09",
+            "coordinates": [
+                22.0,
+                8.333333333333334
+            ],
+            "name": "Location 93",
+            "description": "Description for location 93.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 94,
+            "date": "2025-01-19",
+            "coordinates": [
+                20.0,
+                8.61111111111111
+            ],
+            "name": "Location 94",
+            "description": "Description for location 94.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 95,
+            "date": "2025-01-19",
+            "coordinates": [
+                21.0,
+                8.61111111111111
+            ],
+            "name": "Location 95",
+            "description": "Description for location 95.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 96,
+            "date": "2025-01-19",
+            "coordinates": [
+                22.0,
+                8.61111111111111
+            ],
+            "name": "Location 96",
+            "description": "Description for location 96.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 97,
+            "date": "2025-01-29",
+            "coordinates": [
+                20.0,
+                8.88888888888889
+            ],
+            "name": "Location 97",
+            "description": "Description for location 97.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 98,
+            "date": "2025-01-29",
+            "coordinates": [
+                21.0,
+                8.88888888888889
+            ],
+            "name": "Location 98",
+            "description": "Description for location 98.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 99,
+            "date": "2025-01-29",
+            "coordinates": [
+                22.0,
+                8.88888888888889
+            ],
+            "name": "Location 99",
+            "description": "Description for location 99.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 100,
+            "date": "2025-02-08",
+            "coordinates": [
+                20.0,
+                9.166666666666666
+            ],
+            "name": "Location 100",
+            "description": "Description for location 100.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 101,
+            "date": "2025-02-08",
+            "coordinates": [
+                21.0,
+                9.166666666666666
+            ],
+            "name": "Location 101",
+            "description": "Description for location 101.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 102,
+            "date": "2025-02-08",
+            "coordinates": [
+                22.0,
+                9.166666666666666
+            ],
+            "name": "Location 102",
+            "description": "Description for location 102.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 103,
+            "date": "2025-02-18",
+            "coordinates": [
+                20.0,
+                9.444444444444445
+            ],
+            "name": "Location 103",
+            "description": "Description for location 103.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 104,
+            "date": "2025-02-18",
+            "coordinates": [
+                21.0,
+                9.444444444444445
+            ],
+            "name": "Location 104",
+            "description": "Description for location 104.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "blue"
+        },
+        {
+            "id": 105,
+            "date": "2025-02-18",
+            "coordinates": [
+                22.0,
+                9.444444444444445
+            ],
+            "name": "Location 105",
+            "description": "Description for location 105.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        },
+        {
+            "id": 106,
+            "date": "2025-02-28",
+            "coordinates": [
+                20.0,
+                9.722222222222221
+            ],
+            "name": "Location 106",
+            "description": "Description for location 106.",
+            "imageUrl": "https://example.com/image.jpg",
+            "color": "red"
+        }
+    ]
+}
