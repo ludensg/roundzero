@@ -81,31 +81,41 @@
     display: inline-block; /* Necessary for aligning spans correctly */
     text-align: center;
     font-size: 2em;
+    font-family: 'helvbold';
     color: white;
     margin-top: 20vh;
 }
 
+.hero-subtitle {
+    position: fixed;
+    left: 47%;
+    font-size: 1em;
+    font-family: 'helvlight';
+    transform: scaleY(.9) scaleX(1.3);
+    opacity: 40%;
+    color: white;
+    margin-top: 25vh;
+}
+
 .hero-title span {
     display: inline-block;
-    animation: wave 2s infinite;
+    animation: idleHover 8s ease-in-out infinite;
     animation-delay: calc(var(--i) * 0.1s); /* Delay based on the child index */
 }
 
-@keyframes wave {
+@keyframes idleHover {
     0%, 100% {
-        transform: rotate(0deg);
+        transform: translate(0, 0);
     }
-    25% {
-        transform: rotate(-5deg);
-    }
-    75% {
-        transform: rotate(5deg);
+    50% {
+        transform: translate(0, -10px);
     }
 }
 
 
     .credit-text {
-        bottom: 10px;
+        font-family: 'helvlight';
+        bottom: 20px;
     }
 
     .fancy-button {
@@ -246,15 +256,17 @@
   }
     .hand {
     position: fixed;
-    top: 50%;
-    width: 40%;
-    height: 100%; 
+    top: 52%;
+    width: 100%;
+    height: 125%; 
     background-size: cover;
     background-repeat: no-repeat;
     transition: all 0.5s ease; /* Smooth transition for moving hands */
         pointer-events: none;
 
     z-index: 1; /* Ensure hands are below the red line */
+    --hover-effect: translate(0, 0); /* New custom property for hover and perspective effects */
+    transform: var(--hover-effect) translateY(-50%) scale(40%);
 }
 
 
@@ -263,14 +275,18 @@
     pointer-events: none;
     left: 0;
     background-image: url('hand2.png'); /* Confirm this path is correct */
-    transform: translateY(-50%) translateX(5%); /* Adjust for initial visibility */
+    transform: translateY(-50%) translateX(-25%) scale(40%); /* Adjust for initial visibility */
+    transform: var(--hover-effect) translateY(-50%) translateX(-25%) scale(40%);
+
 }
 
 .right-hand {
     pointer-events: none;
     right: 0;
     background-image: url('hand1.png'); /* Confirm this path is correct */
-    transform: translateY(-50%) translateX(-5%); /* Adjust for initial visibility */
+    transform: translateY(-50%) translateX(25%) scale(40%); /* Adjust for initial visibility */
+    transform: var(--hover-effect) translateY(-50%) translateX(25%) scale(40%);
+    overflow:visible;
 }
 
 
