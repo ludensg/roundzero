@@ -68,8 +68,12 @@ document.querySelectorAll('.fancy-button').forEach(button => {
     button.addEventListener('mouseenter', function() {
         const newTop = this.getAttribute('data-top');
         // Update current top position for hands
-        currentTopLeftHand = newTop;
-        currentTopRightHand = newTop;
+        if(screenWidth > 768){
+
+            currentTopLeftHand = newTop;
+            currentTopRightHand = newTop;
+        }
+
         actualL = (LFactor * tighterModifier * .4) ;
         actualR = (RFactor * tighterModifier * .01);
     });
@@ -114,8 +118,8 @@ function updateHoverEffect() {
             const rightEffectValue = `translateY(${baseHoverPosition}px) `;
             // Apply transform considering the new base position
             if (screenWidth <= 768) { // For mobile devices
-                rightHand.style.transform = `translateX(${actualR}%) translateY(55%) var(--hover-effect) ${rightEffectValue} 
-                translateX(30%) scale(40%)`;
+                rightHand.style.transform = ` translateY(55%) var(--hover-effect) ${rightEffectValue} 
+                translateX(45%) scale(40%)`;
             }
             else {
                 rightHand.style.transform = `translateX(${actualR}%) var(--hover-effect) ${rightEffectValue} 
