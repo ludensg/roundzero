@@ -3,104 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Round Zero - Main Menu</title>
     <link rel="stylesheet" href="stylehome.css">
 </head>
 <body>
-  <div class="crt">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -1s, -0.25s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -2s, -0.5s;">
 
-    <div class="game-of-life"></div> 
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -10s, -16s;">
+
+    
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -3s, -4s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -5s, -6s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -6s, -8s;">
+
+
+
+
+  <div class="crt">
+    <div class="game-of-life" style="opacity: .5;"></div> 
     <div class="hero-title">
-      <span>R</span><span>o</span><span>u</span><span>n</span><span>d</span> <span>Z</span><span>e</span><span>r</span><span>o</span>
-  </div>
-  <body>
+        <span>R</span><span>o</span><span>u</span><span>n</span><span>d</span> <span>Z</span><span>e</span><span>r</span><span>o</span>
+    </div>
     <div id="hands-container" style="overflow: visible;">
         <div class="hand left-hand"></div>
         <div class="hand right-hand"></div>
     </div>    
     <div class="buttons-container">
-        <a href="map.html" class="fancy-button">Go to Game Map</a>
-        <a href="manifesto11.pdf" download class="fancy-button" id="manifestoButton">Download Manifesto </a>
-        <a href="https://en.wikipedia.org/wiki/Actor_model" class="fancy-button" id="manifestoButton">Tutorial</a>
+        <a href="map.html" class="fancy-button" data-top="51%">Game Map</a>
+        <a href="checkpoints/gallery.html" class="fancy-button" data-top="65%">Checkpoints</a>
+        <a href="manifesto11.pdf" download class="fancy-button" id="manifestoButton" data-top="79%">Download Manifesto </a>
+        <a href="https://en.wikipedia.org/wiki/Actor_model" class="fancy-button" data-top="92%">Tutorial</a>
     </div>
     <div class="credit-text">
-        <a href="https://ludensg.com" target="_blank">A Ludens-G Game</a>
+        <a href="https://ludensg.com" target="_blank" id="ludenslink"><p style="background-color: beige; opacity: 30%; font-size: smaller;">A Ludens-G Game</p></a>
     </div>
 </body>
-
-  </div>
-  
-  <script>
-    document.addEventListener('mousemove', (e) => {
-        const gameTitle = document.querySelector('.game-title');
-        if (!gameTitle) return;
-    
-        const {clientX, clientY} = e;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-    
-        // Calculate the difference between the mouse position and the center of the screen
-        const deltaX = (clientX - centerX) / 50;
-        const deltaY = (clientY - centerY) / 50;
-    
-        // Apply a 3D rotation based on mouse position
-        gameTitle.style.transform = `rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
-    });
-    </script>
-
-<script>
-    let hoverDelta = 0;
-    const hoverAmplitude = 5; // Max pixels to move up and down
-    const hoverSpeed = 0.025; // Speed of hover effect
-    const phaseOffset = Math.PI / 4; // Phase offset for the left hand
-    
-    function updateHoverEffect() {
-        hoverDelta += hoverSpeed;
-        const baseHoverPosition = Math.sin(hoverDelta) * hoverAmplitude;
-    
-        // Update hover position with phase offset for left hand
-        const leftHoverPosition = Math.sin(hoverDelta + phaseOffset) * hoverAmplitude;
-        
-        // Right hand uses the base hover position without offset
-        const rightHoverPosition = baseHoverPosition;
-    
-        // Apply updated hover positions
-        const leftHand = document.querySelector('.left-hand');
-        const rightHand = document.querySelector('.right-hand');
-    
-        if (leftHand) {
-            const leftEffectValue = `translateY(${leftHoverPosition}px)`;
-            leftHand.style.setProperty('--hover-effect', leftEffectValue);
-        }
-        
-        if (rightHand) {
-            const rightEffectValue = `translateY(${rightHoverPosition}px)`;
-            rightHand.style.setProperty('--hover-effect', rightEffectValue);
-        }
-    
-        requestAnimationFrame(updateHoverEffect);
-    }
-    
-    updateHoverEffect(); // Start the hover effect
-    
-    // Existing mouse movement effect here (unchanged)
-    document.addEventListener('mousemove', (e) => {
-        const {clientX, clientY} = e;
-        const centerX = window.innerWidth / 3;
-        const centerY = window.innerHeight / 4;
-        const deltaX = (clientX - centerX) / 40;
-        const deltaY = (clientY - centerY) / 40;
-    
-        document.querySelectorAll('.hand').forEach(hand => {
-            const isLeftHand = hand.classList.contains('left-hand');
-            const hoverEffectValue = `translateY(${isLeftHand ? Math.sin(hoverDelta + phaseOffset) * hoverAmplitude : Math.sin(hoverDelta) * hoverAmplitude}px) rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
-            hand.style.setProperty('--hover-effect', hoverEffectValue);
-        });
-    });
-    </script>
-    
-    
-    
 <script src="app2.js"></script>
 </body>
 </html>

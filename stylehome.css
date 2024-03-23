@@ -60,16 +60,23 @@
                 600px 100px #7b1fa2, 800px 200px #7b1fa2, 500px 300px #7b1fa2;
             animation: blink 3s infinite;
         }
-            .buttons-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px; /* Adjust the space between buttons */
-    }
+        .buttons-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Adjust the space between buttons */
+
+            padding: 10px 10px;
+            background-color: #b4aa9471;
+            text-decoration: none;
+            border-color: bisque;
+            border-radius: 5px;
+            opacity: .7;
+        }
 
     .hero-title, .credit-text {
         position: absolute;
@@ -83,7 +90,9 @@
     font-size: 2em;
     font-family: 'helvbold';
     color: white;
-    margin-top: 20vh;
+    background-color: rgba(0, 0, 0, 0.651);
+    padding-top: 1dvh;
+    margin-top: 15vh;
 }
 
 .hero-subtitle {
@@ -118,6 +127,7 @@
         bottom: 20px;
     }
 
+
     .fancy-button {
         display: inline-block;
         margin: 20px;
@@ -127,6 +137,7 @@
         text-decoration: none;
         border-radius: 5px;
         transition: background-color 0.3s;
+        font-family: 'helvlight';
     }
 
     .fancy-button:hover {
@@ -256,17 +267,18 @@
   }
     .hand {
     position: fixed;
-    top: 52%;
-    width: 100%;
-    height: 125%; 
+    top: 15%;
+    width: 105%;
+    height: 135%; 
     background-size: cover;
     background-repeat: no-repeat;
-    transition: all 0.5s ease; /* Smooth transition for moving hands */
-        pointer-events: none;
+    transition: all 0.9s ease; /* Smooth transition for moving hands */
+    pointer-events: none;
 
     z-index: 1; /* Ensure hands are below the red line */
     --hover-effect: translate(0, 0); /* New custom property for hover and perspective effects */
     transform: var(--hover-effect) translateY(-50%) scale(40%);
+    transform-origin: center;
 }
 
 
@@ -276,7 +288,7 @@
     left: 0;
     background-image: url('hand2.png'); /* Confirm this path is correct */
     transform: translateY(-50%) translateX(-25%) scale(40%); /* Adjust for initial visibility */
-    transform: var(--hover-effect) translateY(-50%) translateX(-25%) scale(40%);
+    transform: var(--hover-effect) translateY(-50%) translateX(-30%) scale(40%);
 
 }
 
@@ -294,31 +306,67 @@
 @media (max-width: 768px){
     .hand {
         top: 35%;
-        height: 35%; /* Adjust based on your image size */
+        height: 70%; /* Adjust based on your image size */
 
-    width: 100%;
+        width: 100%;
     
-}
+    }
 
     .left-hand {
         transform: scale(.5); /* Adjust for initial visibility */
         transform: translateX(-60%); /* Adjust for initial visibility */
 
 
-}
+    }
 
-.right-hand {
-        transform: scale(.5); /* Adjust for initial visibility */
-        transform:translateX(40%); /* Adjust for initial visibility */
+    .right-hand {
+            transform: scale(.5); /* Adjust for initial visibility */
+            transform:translateX(40%); /* Adjust for initial visibility */
 
-}
-}
+    }
+} 
 
+img.full-screen {
+    position: fixed; /* Fixed position to stay behind other content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the whole screen, cropping as necessary */
+    z-index: -1; /* Ensure it stays behind other content */
+    filter: hue-rotate(270deg) brightness(50%);
+    mix-blend-mode: lighten;
+    filter:invert(1);
+    opacity: .1;
+    animation: wave 12s infinite, glitch 23s infinite;
+  }
 
-#manifestoButton:hover ~ #hands-container .left-hand {
-    transform: translateX(400%); /* Move left hand closer on hover */
-}
+  @keyframes wave {
+    0%, 100% {
+      transform: translateX(0%) skewX(-10deg);
+    }
+    50% {
+      transform: translateX(-5%) skewX(10deg);
+    }
+  }
 
-#manifestoButton:hover ~ #hands-container .right-hand {
-    transform: translateX(-400%); /* Move right hand closer on hover */
-}
+  @keyframes glitch {
+    0%, 100% {
+      clip-path: polygon(0 0, 100% 0, 100% 5%, 0 5%);
+    }
+    10%, 90% {
+      clip-path: polygon(0 15%, 100% 15%, 100% 20%, 0 20%);
+    }
+    20%, 80% {
+      clip-path: polygon(0 30%, 100% 30%, 100% 35%, 0 35%);
+    }
+    30%, 70% {
+      clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+    }
+    40%, 60% {
+      clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%);
+    }
+    50% {
+      clip-path: polygon(0 75%, 100% 75%, 100% 80%, 0 80%);
+    }
+  }

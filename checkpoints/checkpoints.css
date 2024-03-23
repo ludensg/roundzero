@@ -1,0 +1,230 @@
+@font-face {
+    font-family: 'bitsumishi';
+    src: url('../fonts/bitsumishi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+    gap: 10px;
+    background-color: rgb(80, 80, 80);
+  }
+
+
+  .banner {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 17px;
+    background: rgba(170, 150, 83, 0.705);
+    color: rgb(29, 29, 29);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'bitsumishi';
+    opacity: 90%;
+    transition: transform 0.3s, opacity 0.3s;
+    animation: flickerAnimation 2s infinite;
+}
+
+.bannersupport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(112, 72, 32, 0.445);
+    mix-blend-mode: hard-light;
+    display: flex;
+    opacity: 100%;
+    transition: transform 0.3s, opacity 0.3s;
+    animation: flickerAnimationSupport 2s infinite;
+}
+
+
+  .thumbnail-container {
+    width: calc(100%/9 - 20px); /* Adjust number for desired column count */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  .thumbnail {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 2px solid transparent;
+  }
+  .thumbnail.selected {
+    border-color: blue;
+    background-color: lightblue;
+  }
+  .filename {
+    text-align: center;
+    margin-top: 5px;
+  }
+  .filename.selected {
+    background-color: blue;
+  }
+  .preview-pane {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    overflow: auto;
+    background-color: #cfccaac0;
+    padding: 10px;
+    box-sizing: border-box;
+    display: none; /* Initially hidden */
+  }
+  @media (max-width: 768px) {
+    .preview-pane {
+      position: relative;
+      width: 100%;
+      height: auto;
+      display: block; /* Always show on mobile */
+    }
+    .thumbnail-container {
+      width: calc(100%/3 - 20px); /* Fewer columns on mobile */
+    }
+  }
+
+
+
+
+  .crt::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: 
+    linear-gradient(rgba(20, 19, 19, 0.74) 50%, rgba(167, 153, 31, 0.25) 50%), /* Original linear gradient */
+    linear-gradient(90deg, rgba(255, 197, 121, 0.329), rgba(37, 109, 177, 0.527), rgba(0, 0, 255, 0.06)); /* Rotated linear gradient */
+    mix-blend-mode: color-dodge;
+    z-index: 2;
+    background-size: .3vw .3vh;
+    pointer-events: none;
+    top: 0;
+    overflow: hidden;
+  }
+
+  @keyframes flicker {
+    0% {
+        opacity: 0.85;
+    }
+    5% {
+        opacity: 0.95;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    15% {
+        opacity: 0.98;
+    }
+    20% {
+        opacity: 0.75;
+    }
+    25% {
+        opacity: 0.92;
+    }
+    30% {
+        opacity: 0.78;
+    }
+    35% {
+        opacity: 0.92;
+    }
+    40% {
+        opacity: 0.8;
+    }
+    45% {
+        opacity: 0.94;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    55% {
+        opacity: 0.75;
+    }
+    60% {
+        opacity: 0.85;
+    }
+    65% {
+        opacity: 0.92;
+    }
+    70% {
+        opacity: 0.85;
+    }
+    75% {
+        opacity: 0.88;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0.92;
+    }
+    90% {
+        opacity: 0.85;
+    }
+    95% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.88;
+    }
+}
+
+  
+  .crt::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+
+  crt.crt2 {
+    opacity: .3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    position: fixed;
+  }
+
+  .fancy-button {
+    display:block;
+    position:absolute;
+    bottom: 3%;
+    left: 3%;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #b3ac52;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 0px;
+    transition: background-color 0.3s;
+    font-family: 'bitsumishi';
+}
+
+.fancy-button:hover {
+    background-color: #b08b27;
+}

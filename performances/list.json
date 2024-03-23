@@ -32,6 +32,28 @@
             "name": "The Institute of Contemporary Art, Miami",
             "description": "On a Charles Gaines piece.",
             "color": "yellow"
+        },
+        {
+            "id": 4,
+            "date": "2024-03-22",
+            "time": "11:30 A.M.",
+            "coordinates": [
+                10.501398559792918, -66.90228228844228
+            ],
+            "name": "Galería de Arte Nacional de Venezuela",
+            "description": "",
+            "color": "cyan"
+        },
+        {
+            "id": 5,
+            "date": "2024-03-22",
+            "time": "4:00 P.M.",
+            "coordinates": [
+                41.879676363646716, -87.62374548650607
+            ],
+            "name": "Art Institute of Chicago",
+            "description": "Gallery 242-Moulin de la Galette & Slender Woman with Vase.",
+            "color": "magenta"
         }
     ]
 }

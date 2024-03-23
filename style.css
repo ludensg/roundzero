@@ -65,7 +65,7 @@ body {
 }
 
 .custom-icon img {
-    opacity: 0.4; /* Set default opacity to 50% */
+    opacity: 0.6; /* Set default opacity to 50% */
     transition: opacity 0.25s ease-in-out; /* Smooth transition for opacity change */
     z-index: 22;
     transform: scale(.7);
@@ -74,7 +74,7 @@ body {
 }
 
 .custom-icon:hover img {
-    opacity: 0.7; /* Full opacity on hover */
+    opacity: 0.9; /* Full opacity on hover */
     transform: scale(.9);
 }
 
@@ -88,7 +88,7 @@ body {
 
 /* Example of customizing map tile colors with filters (this is very basic and may not achieve the exact desired effect) */
 .leaflet-tile {
-    filter: brightness(25%) contrast(155%) sepia(90%) hue-rotate(20deg) saturate(20%);
+    filter: brightness(30%) contrast(160%) sepia(100%) hue-rotate(-30deg) saturate(50%);
 }
 
 /* Sea color cannot be directly controlled here since it's part of the tile images;
@@ -230,3 +230,32 @@ body {
     background-color: #3388ff; /* Example color */
     animation: pulse 2s infinite;
 }
+
+/* Adjust the overall popup size */
+.leaflet-popup-content-wrapper {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Adjust height as needed or keep it auto */
+    background-color: #9e9e9eb9;
+}
+
+/* Adjust the content area within the popup */
+.leaflet-popup-content {
+    font-size: 12px; /* Smaller text */
+    line-height: 1.4; /* Adjust line height for readability */
+}
+
+/* Optionally, adjust the size of images within the popup if they exist */
+.leaflet-popup-content img {
+    max-width: 100%; /* Make sure images are not wider than the popup */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.custom-popup-size .leaflet-popup-content-wrapper {
+    width: 200px; /* Example custom width */
+    height: auto;
+}
+
+.custom-popup-size .leaflet-popup-content {
+    font-size: 10px; /* Example custom font size */
+}
+

@@ -1,6 +1,25 @@
 let locationThresh = 50;
 animationInProgress = false;
 
+const customOptions = {
+    className: 'custom-popup-size'
+}
+
+function getURLParameters() {
+    var params = {};
+    var search = window.location.search.substring(1);
+    if (search) {
+        search.split('&').forEach(function(part) {
+            var item = part.split('=');
+            params[item[0]] = decodeURIComponent(item[1]);
+        });
+    }
+    return params;
+}
+
+var params = getURLParameters();
+
+
 function colorToFilter(color) {
     const filters = {
         red: 'invert(35%) sepia(100%) saturate(6000%) hue-rotate(0deg) brightness(100%) contrast(100%)',
@@ -10,13 +29,13 @@ function colorToFilter(color) {
         orange: 'invert(65%) sepia(95%) saturate(6000%) hue-rotate(14deg) brightness(100%) contrast(100%)',
         pink: 'invert(25%) sepia(95%) saturate(6000%) hue-rotate(330deg) brightness(100%) contrast(100%)',
         purple: 'invert(25%) sepia(95%) saturate(6000%) hue-rotate(260deg) brightness(100%) contrast(100%)',
-        cyan: 'invert(80%) sepia(30%) saturate(7500%) hue-rotate(180deg) brightness(90%) contrast(85%)',
+        cyan: 'invert(80%) sepia(30%) saturate(7500%) hue-rotate(200deg) brightness(90%) contrast(-185%)',
         magenta: 'invert(20%) sepia(100%) saturate(6000%) hue-rotate(300deg) brightness(110%) contrast(100%)',
         lime: 'invert(90%) sepia(70%) saturate(6000%) hue-rotate(72deg) brightness(100%) contrast(100%)',
         brown: 'invert(60%) sepia(100%) saturate(600%) hue-rotate(15deg) brightness(90%) contrast(100%)',
         grey: 'brightness(0%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) contrast(85%)',
         teal: 'invert(50%) sepia(100%) saturate(1500%) hue-rotate(165deg) brightness(80%) contrast(85%)',
-        navy: 'invert(30%) sepia(100%) saturate(700%) hue-rotate(210deg) brightness(70%) contrast(83%)'
+        navy: 'invert(30%) sepia(100%) saturate(700%) hue-rotate(210deg) brightness(70%) contrast(83%)',
     };    
     return filters[color.toLowerCase()] || ''; // Return the filter or an empty string if color not found
 }
@@ -63,6 +82,8 @@ function applyGlimmerEffect(polygon) {
 let locationGroups = [];
 let sortedLocations;
 
+let timoutAdd;
+
 // Load and display markers from an external JSON file
 fetch('performances/list.json')
 //fetch('testcases/locations.json')
@@ -71,10 +92,26 @@ fetch('performances/list.json')
         baseSetup(data.locations);   
         animationInProgress = true; // Disable popups during animation
 
-        map.flyTo(data.locations[1].coordinates, 11, {
+        map.flyTo(data.locations[1].coordinates, 3, {
             animate: true,
             duration: 1.5 // Duration in seconds
-        });            
+        });       
+        
+        
+        if (params.lat && params.lng && params.zoom) {
+            const lat = parseFloat(params.lat);
+            const lng = parseFloat(params.lng);
+            const zoom = parseInt(params.zoom, 10);
+            
+            if(!isNaN(lat) && !isNaN(lng) && !isNaN(zoom)) {
+                animationInProgress = true;
+                map.flyTo([lat, lng], zoom, {
+                    animate: true,
+                    duration: 3 // Duration in seconds
+                });
+            }
+        }
+        
         animationInProgress = false; // Disable popups during animation
     }).catch(error => console.error('Error loading the data:', error));
 
@@ -95,46 +132,62 @@ fetch('performances/list.json')
             });
     
             const marker = L.marker(coords, {icon: customIcon}).addTo(map);
-            const popupContent = createPopupContent(locationData);
-            marker.bindPopup(popupContent);
+            marker.popupLocked = false; // property to track the popup's "lock" state
+            marker.closeTimeout = null; // Timeout for closing the popup
 
-            // Add a tooltip
-            marker.bindTooltip(locationData.name, {
-                permanent: false, // The tooltip will only show when the marker is hovered
-                direction: 'top', // The tooltip will appear above the marker
-                offset: L.point(0, -20), // Adjust the position of the tooltip
-                className: 'marker-tooltip' // A custom class for styling the tooltip if needed
+            const popupContent = createPopupContent(locationData);            
+
+            marker.bindPopup(popupContent, customOptions);
+
+            // Event to open popup on hover
+            marker.on('mouseover', function () {
+                if (this.closeTimeout) {
+                    clearTimeout(this.closeTimeout); // Clear the timeout if the mouse re-enters
+                    this.closeTimeout = null;
+                }
+                this.openPopup();
             });
-      
-            
-            marker.on('click', function (e) {
-                if (animationInProgress) {
-                    e.target.closePopup();
+
+            // Event to close popup on mouse out, only if not "locked"
+            marker.on('mouseout', function () {
+                if (!this.popupLocked) {
+                    if (this.closeTimeout) {
+                        clearTimeout(this.closeTimeout); // Prevent multiple timeouts
+                    }
+                    // Set a timeout to close the popup
+                    this.closeTimeout = setTimeout(() => {
+                        this.closePopup();
+                    }, 3000); // Delay in milliseconds (3000ms = 3 seconds)
+                }
+            });
+
+            // Event to "lock" or "unlock" the popup on double click
+            marker.on('dblclick', function () {
+                this.popupLocked = !this.popupLocked; // Toggle the "lock" state
+                if (this.popupLocked) {
+                    if (this.closeTimeout) {
+                        clearTimeout(this.closeTimeout); // Cancel any pending close if "locked"
+                        this.closeTimeout = null;
+                    }
+                    this.openPopup();
                 } else {
-                    e.target.openPopup();
+                    this.closePopup();
                 }
             });
-            
 
-            // Conditional event handling based on animation state
-            marker.on('click', function (e) {
-                if (animationInProgress) {
-                    e.target.closePopup();
-                }
-            });
-    
+            // Adjusted for popupopen event
             marker.on('popupopen', function(e) {
                 if (!animationInProgress) {
-                    const offsetMultiplier = L.Browser.mobile ? 0.32 : 0.42; // Use Leaflet's mobile detection
-                    const offset = map.getSize().y * offsetMultiplier;
-                    const currentZoom = map.getZoom();
-                    const targetPoint = map.project(e.target.getLatLng(), currentZoom).subtract([0, offset]);
-                    const targetLatLng = map.unproject(targetPoint, currentZoom);
-                    map.flyTo(targetLatLng, currentZoom, {animate: true, duration: 0.5});
-    
-                    setupSlideshow(locationData.id); // Assumes setupSlideshow is correctly implemented
+                    //const offsetMultiplier = L.Browser.mobile ? 0.32 : 0.42;
+                    //const offset = map.getSize().y * offsetMultiplier;
+                    //const currentZoom = map.getZoom();
+                    //const targetPoint = map.project(e.target.getLatLng(), currentZoom).subtract([0, offset]);
+                    //const targetLatLng = map.unproject(targetPoint, currentZoom);
+                    //map.flyTo(targetLatLng, currentZoom, {animate: true, duration: 0.5});
+
+                    setupSlideshow(locationData.id, marker);
                 } else {
-                    map.closePopup(); // Close any popup that might have been opened
+                    map.closePopup();
                 }
             });
         });
@@ -152,12 +205,18 @@ fetch('performances/list.json')
 function createPopupContent(locationData) {
     let imagesHtml = '';
     for (let i = 1; i <= 3; i++) { // Assuming 3 images for simplicity.
-        imagesHtml += `<img src="performances/${locationData.id}/${i}.jpg" class="slideshow-image slideshow-image-${locationData.id}" alt="Image ${i}" style="width:100%; ${i !== 1 ? 'display:none;' : ''}" onclick="window.open(this.src, '_blank');">`;
+        imagesHtml += `<img src="performances/${locationData.id}/${i}.jpg" 
+        class="slideshow-image slideshow-image-${locationData.id}" alt="Image ${i}" 
+        style="width:100%; max-height: 70%; ${i !== 1 ? 'display:none;' : ''}" 
+        onclick="window.open(this.src, '_blank');">`;
     }
+
+    let formattedDate = formatDate(locationData.date);
 
     return `
         <h3>${locationData.name}</h3>
-        <h4>${locationData.date}</h4>
+        <h4>${formattedDate}</h4>
+        <h5>${locationData.time}</h5>
         <p>${locationData.description}</p>
         <div class="slideshow-container" data-location-id="${locationData.id}">
             ${imagesHtml}
@@ -166,8 +225,35 @@ function createPopupContent(locationData) {
         </div>`;
 }
 
+function formatDate(dateString) {
+    const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = months[date.getMonth()];
+    const day = date.getDate();
 
-function setupSlideshow(locationId) {
+    // Function to get the date suffix
+    function getDaySuffix(day) {
+        if (day > 3 && day < 21) return 'th';
+        switch (day % 10) {
+            case 1:  return "st";
+            case 2:  return "nd";
+            case 3:  return "rd";
+            default: return "th";
+        }
+    }
+
+    return `${month} ${day}${getDaySuffix(day)}, ${year}`;
+}
+
+// Usage example:
+const formattedDate = formatDate("2024-03-22");
+console.log(formattedDate); // Outputs: March 22nd, 2024
+
+
+
+function setupSlideshow(locationId , marker) {
     const container = document.querySelector(`.slideshow-container[data-location-id="${locationId}"]`);
     if (!container) return;
 
@@ -178,7 +264,22 @@ function setupSlideshow(locationId) {
         images.forEach((img, i) => {
             img.style.display = i === index ? 'block' : 'none';
         });
+
+        resetCloseTimeout(); // Reset the timeout whenever the image is shown
+
     }
+    
+    function resetCloseTimeout() {
+        if (marker.closeTimeout) {
+            clearTimeout(marker.closeTimeout); // Clear the existing timeout
+            marker.closeTimeout = null;
+        }
+        // Set a new timeout to close the popup
+        marker.closeTimeout = setTimeout(() => {
+            marker.closePopup();
+        }, 3000); // Adjust the timeout duration as needed
+    }
+
 
     container.querySelector('.left-arrow').addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -333,7 +434,7 @@ function drawShape(locations, groupIndex) {
                 L.polygon(points, {
                     color: 'grey',
                     fillColor: fillColor,
-                    fillOpacity: 0.4,
+                    fillOpacity: 0.6,
                     weight: 0.5
                 }).addTo(map);
             }
@@ -530,7 +631,7 @@ function animateLocationsSequentially(locations, index = 0) {
 
     const marker = L.marker(currentLocation.coordinates, {icon: customIcon}).addTo(map);
     const popupContent = createPopupContent(currentLocation);
-    marker.bindPopup(popupContent);
+    marker.bindPopup(popupContent, customOptions);
 
     
    
