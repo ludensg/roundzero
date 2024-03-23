@@ -16,8 +16,9 @@ let RFactor = defaultRFactor;
 let actualR =  defaultRFactor;
 let actualL =  defaultLFactor;
 
+const screenWidth = window.innerWidth;
+
 function adjustForScreenSize() {
-    const screenWidth = window.innerWidth;
 
     // Example breakpoint check - adjust values as necessary
     if (screenWidth < 768) { // For mobile devices
@@ -94,23 +95,38 @@ function updateHoverEffect() {
     const leftHand = document.querySelector('.left-hand');
     const rightHand = document.querySelector('.right-hand');
 
-    if (leftHand) {
-        leftHand.style.top = currentTopLeftHand; // Apply dynamic top value
-        const leftEffectValue = `translateY(${baseHoverPosition}px)`;
-        // Apply transform considering the new base position
-        leftHand.style.transform = `translateX(${actualL}%) var(--hover-effect) ${leftEffectValue} 
-         scale(40%)`;
-    }
 
-    if (rightHand) {
-        rightHand.style.top = currentTopRightHand; // Apply dynamic top value
-        const rightEffectValue = `translateY(${baseHoverPosition}px) `;
-        // Apply transform considering the new base position
-        rightHand.style.transform = `translateX(${actualR}%) var(--hover-effect) ${rightEffectValue} 
-        translateX(${RFactor}%) scale(40%)`;
-    }
+        if (leftHand) {
+            leftHand.style.top = currentTopLeftHand; // Apply dynamic top value
+            const leftEffectValue = `translateY(${baseHoverPosition}px)`;
+            // Apply transform considering the new base position
+            if (screenWidth >= 768) { // For mobile devices
+                leftHand.style.transform = `translateX(${actualL}%) var(--hover-effect) ${leftEffectValue} 
+                scale(40%)`; }
+            else {
+                leftHand.style.transform = `translateX(-55%) translateY(55%) var(--hover-effect) ${leftEffectValue} 
+                scale(40%)`; 
+            }
+        }
 
-    requestAnimationFrame(updateHoverEffect);
+        if (rightHand) {
+            rightHand.style.top = currentTopRightHand; // Apply dynamic top value
+            const rightEffectValue = `translateY(${baseHoverPosition}px) `;
+            // Apply transform considering the new base position
+            if (screenWidth <= 768) { // For mobile devices
+                rightHand.style.transform = `translateX(${actualR}%) translateY(55%) var(--hover-effect) ${rightEffectValue} 
+                translateX(30%) scale(40%)`;
+            }
+            else {
+                rightHand.style.transform = `translateX(${actualR}%) var(--hover-effect) ${rightEffectValue} 
+                translateX(${RFactor}%) scale(40%)`;
+            }
+        }
+
+        else{}
+
+        requestAnimationFrame(updateHoverEffect);
+    
 }
 
 

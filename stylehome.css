@@ -308,13 +308,13 @@
         top: 35%;
         height: 70%; /* Adjust based on your image size */
 
-        width: 100%;
+        width: 190%;
     
     }
 
     .left-hand {
         transform: scale(.5); /* Adjust for initial visibility */
-        transform: translateX(-60%); /* Adjust for initial visibility */
+        transform: translateX(-90%); /* Adjust for initial visibility */
 
 
     }
