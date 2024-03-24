@@ -1,5 +1,5 @@
-let currentTopLeftHand = '51%'; 
-let currentTopRightHand = '51%'; 
+let currentTopLeftHand = '40%'; 
+let currentTopRightHand = '40%'; 
 const defaultTopR = currentTopRightHand;
 const defaultTopL = currentTopLeftHand;
 
