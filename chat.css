@@ -76,6 +76,7 @@
     text-align: center;
     max-width: 100%;
     overflow: hidden;
+    transform: scale(.85);
 }
 
 iframe {
@@ -95,8 +96,17 @@ iframe {
 
     .chat-container {
         min-height: 100%;
+        transform: scale(.95);
+
     }
 
+    .fancy-button {
+        transform: scale(.8);
+    }
+
+    .fancy-button2 {
+        transform: scale(.8);
+    }
 }
 
 @keyframes idleHover {
