@@ -1,0 +1,277 @@
+@font-face {
+    font-family: 'helvbold';
+    src: url('/fonts/Helvetica Bold Condensed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'helvcomp';
+    src: url('/fonts/Helvetica Ultra Compressed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'helvlight';
+    src: url('/fonts/Helvetica Light Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bitsumishi';
+    src: url('/fonts/bitsumishi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+
+  .banner {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: rgba(62, 44, 139, 0.705);
+    color: rgb(168, 168, 168);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'bitsumishi';
+    opacity: 90%;
+    transition: transform 0.3s, opacity 0.3s;
+    animation: flickerAnimation 2s infinite;
+}
+
+.bannersupport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(112, 72, 32, 0.445);
+    mix-blend-mode: hard-light;
+    display: flex;
+    opacity: 100%;
+    transition: transform 0.3s, opacity 0.3s;
+    animation: flickerAnimationSupport 2s infinite;
+}
+
+.chat-container {
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+iframe {
+    max-width: 100%;
+    width: 700px; /* Default width, but it won't exceed the max-width of its container */
+    height: 505px; /* Default height, you might want to adjust this based on aspect ratio */
+    border: 0;
+    /* scrolling: "no"; */
+}
+
+@media (max-width: 720px) {
+    iframe {
+        width: 90%; /* Adjusts the width on smaller screens */
+        height: 70vh; /* Adjusts the height to maintain aspect ratio, you might need to adjust this */
+    }
+
+
+    .chat-container {
+        min-height: 100%;
+    }
+
+}
+
+@keyframes idleHover {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+}
+
+
+    .credit-text {
+        font-family: 'helvlight';
+        bottom: 20px;
+    }
+
+    h1 {
+        font-family: 'helvlight';
+        bottom: 20px;
+        color: #281fa2;
+    }
+
+    h2 {
+        font-family: 'helvlight';
+        bottom: 20px;
+        color: #281fa2;
+    }
+
+    .fancy-button {
+        display:block;
+        position:absolute;
+        bottom: 0%;
+        left: 3%;
+        margin: 20px;
+        padding: 10px 20px;
+        background-color: #252a72;
+        color: rgb(155, 155, 155);
+        text-decoration: none;
+        border-radius: 0px;
+        transition: background-color 0.3s;
+        font-family: 'bitsumishi';
+    }
+
+    .fancy-button:hover {
+        background-color: #5d1969;
+    }
+
+    .fancy-button2 {
+        display:block;
+        position:absolute;
+        bottom: 0%;
+        right: 3%;
+        margin: 20px;
+        padding: 10px 20px;
+        background-color: #1f2469;
+        color: rgb(155, 155, 155);
+        text-decoration: none;
+        border-radius: 0px;
+        transition: background-color 0.3s;
+        font-family: 'bitsumishi';
+    }
+
+    .fancy-button2:hover {
+        background-color: #6c187a;
+    }
+
+
+   .crt::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: 
+    linear-gradient(rgba(20, 19, 19, 0.74) 50%, rgba(167, 153, 31, 0.25) 50%), /* Original linear gradient */
+    linear-gradient(90deg, rgba(255, 197, 121, 0.329), rgba(37, 109, 177, 0.527), rgba(0, 0, 255, 0.06)); /* Rotated linear gradient */
+    mix-blend-mode: color-dodge;
+    z-index: 2;
+    background-size: .3vw .3vh;
+    pointer-events: none;
+    top: 0;
+    overflow: hidden;
+  }
+
+  @keyframes flicker {
+    0% {
+        opacity: 0.85;
+    }
+    5% {
+        opacity: 0.95;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    15% {
+        opacity: 0.98;
+    }
+    20% {
+        opacity: 0.75;
+    }
+    25% {
+        opacity: 0.92;
+    }
+    30% {
+        opacity: 0.78;
+    }
+    35% {
+        opacity: 0.92;
+    }
+    40% {
+        opacity: 0.8;
+    }
+    45% {
+        opacity: 0.94;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    55% {
+        opacity: 0.75;
+    }
+    60% {
+        opacity: 0.85;
+    }
+    65% {
+        opacity: 0.92;
+    }
+    70% {
+        opacity: 0.85;
+    }
+    75% {
+        opacity: 0.88;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0.92;
+    }
+    90% {
+        opacity: 0.85;
+    }
+    95% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.88;
+    }
+}
+
+  
+  .crt::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+
+  crt.crt2 {
+    opacity: .3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    position: fixed;
+  }
