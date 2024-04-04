@@ -79,18 +79,36 @@
     transform: scale(.85);
 }
 
+.image-container {
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Ensures nothing extends beyond the container */
+  }
+  .image-container img {
+    width: 38%; /* Makes the image fill the container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes bottom space/margin */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 iframe {
     max-width: 100%;
-    width: 700px; /* Default width, but it won't exceed the max-width of its container */
+    width: 70%; /* Default width, but it won't exceed the max-width of its container */
     height: 505px; /* Default height, you might want to adjust this based on aspect ratio */
     border: 0;
     /* scrolling: "no"; */
 }
 
 @media (max-width: 720px) {
+
+
+      .image-container img {
+        width: 90%; /* Makes the image fill the container */
+      }
+
     iframe {
         width: 90%; /* Adjusts the width on smaller screens */
-        height: 70vh; /* Adjusts the height to maintain aspect ratio, you might need to adjust this */
+        height: 85vh; /* Adjusts the height to maintain aspect ratio, you might need to adjust this */
     }
 
 
