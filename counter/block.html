@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Counter</title>
+    <link rel="stylesheet" href="block.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+
+
+    <div class="crt"></div>
+    <div class="crt2"></div>
+
+    <div class="banner"> Block Counter </div>
+<br><br>
+    <!-- <button id="refreshButton">Refresh Information</button> -->
+    <div class="info-row">
+        <div class="info-box" id="currentDateBox">
+            <div class="info-title">Date</div>
+            <div class="info-content" id="currentDate"></div>
+        </div>
+    </div>
+    <div class="info-row">
+        <div class="info-box" id="megaBlockBox">
+            <div class="info-title">Mega-block</div>
+            <div class="info-content" id="megaBlock"></div>
+        </div>
+        <div class="info-box" id="blockBox">
+            <div class="info-title">Block</div>
+            <div class="info-content" id="block"></div>
+        </div>
+        <div class="info-box" id="miniBlockBox">
+            <div class="info-title">Mini-block</div>
+            <div class="info-content" id="miniBlock"></div>
+        </div>
+    </div>
+    <div class="info-row">
+        <div class="info-box" style="flex-grow: 1;" id="countdownBox">
+            <div class="info-title">Time until next block</div>
+            <div class="info-content" id="countdown"></div>
+        </div>
+    </div>
+    <a href="../index.html" button class="fancy-button">Return to Menu</a>
+
+    <script src="blockInfo.js"></script>
+</body>
+</html>

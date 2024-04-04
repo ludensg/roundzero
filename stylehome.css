@@ -62,7 +62,7 @@
         }
         .buttons-container {
             position: absolute;
-            top: 50%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
@@ -92,7 +92,7 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.651);
     padding-top: 1dvh;
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
 
 .hero-subtitle {
@@ -132,12 +132,14 @@
         display: inline-block;
         margin: 20px;
         padding: 10px 20px;
-        background-color: #7b1fa2;
+        min-width: 170px;
+        background-color: #281fa2;
         color: white;
         text-decoration: none;
         border-radius: 5px;
         transition: background-color 0.3s;
         font-family: 'helvlight';
+        font-weight: bold;
     }
 
     .fancy-button:hover {
