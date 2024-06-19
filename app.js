@@ -231,7 +231,7 @@ function formatDate(dateString) {
     const date = new Date(dateString);
     const year = date.getFullYear();
     const month = months[date.getMonth()];
-    const day = date.getDate();
+    const day = date.getDate() + 1;
 
     // Function to get the date suffix
     function getDaySuffix(day) {

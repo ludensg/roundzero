@@ -54,6 +54,28 @@
             "name": "Art Institute of Chicago",
             "description": "Gallery 242-Moulin de la Galette & Slender Woman with Vase.",
             "color": "magenta"
+        },
+        {
+            "id": 6,
+            "date": "2024-06-14",
+            "time": "3:30 P.M.",
+            "coordinates": [
+                30.44402391483963, -84.28976613173415
+            ],
+            "name": "Florida State University Museum of Fine Arts",
+            "description": "www.wikipediaeye.com",
+            "color": "yellow"
+        },
+        {
+            "id": 7,
+            "date": "2024-06-19",
+            "time": "",
+            "coordinates": [
+                40.76167239954694, -73.97760014656929
+            ],
+            "name": "The Museum of Modern Art",
+            "description": "~LOADING~",
+            "color": "yellow"
         }
     ]
 }
