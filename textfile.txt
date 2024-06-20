@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Pragma" no-cache>
     <meta http-equiv="Expires" content="0">
     <title>Round Zero - Main Menu</title>
     <link rel="stylesheet" href="stylehome.css">
     <style>
-                .text-box {
+        .text-box {
             background-color: rgba(0, 0, 0, 0.6);
             border: 2px solid white;
             padding: 20px;
