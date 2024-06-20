@@ -69,12 +69,12 @@
         {
             "id": 7,
             "date": "2024-06-19",
-            "time": "",
+            "time": "5:00:25 P.M.",
             "coordinates": [
                 40.76167239954694, -73.97760014656929
             ],
-            "name": "The Museum of Modern Art",
-            "description": "~LOADING~",
+            "name": "MOMA",
+            "description": "Featuring Jay from Hawaii, Paula from Argentina, 'To Be Looked at (from the Other Side of the Glass) with One Eye, Close to, for Almost an Hour', and 'In Advance of the Broken Arm'",
             "color": "yellow"
         }
     ]

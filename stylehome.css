@@ -68,7 +68,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px; /* Adjust the space between buttons */
+            /* gap: 10px;  Adjust the space between buttons */
 
             padding: 10px 10px;
             background-color: #b4aa9471;
