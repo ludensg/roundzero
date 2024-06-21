@@ -76,6 +76,39 @@
             "name": "MOMA",
             "description": "Featuring Jay from Hawaii, Paula from Argentina, 'To Be Looked at (from the Other Side of the Glass) with One Eye, Close to, for Almost an Hour', and 'In Advance of the Broken Arm'",
             "color": "yellow"
+        },
+        {
+            "id": 8,
+            "date": "2024-06-21",
+            "time": "1:30 P.M.",
+            "coordinates": [ 
+                40.739611, -74.008889
+            ],
+            "name": "The Whitney Biennial",
+            "description": "Loading",
+            "color": "yellow"
+        },
+        {
+            "id": 9,
+            "date": "2024-06-21",
+            "time": "2:30 P.M.",
+            "coordinates": [
+                40.712758, -73.995164
+            ],
+            "name": "56 Henry",
+            "description": "Loading",
+            "color": "yellow"
+        },
+        {
+            "id": 10,
+            "date": "2024-06-21",
+            "time": "3:30 P.M.",
+            "coordinates": [
+                40.719593, -73.989197
+            ],
+            "name": "Perrotin NY",
+            "description": "Loading",
+            "color": "yellow"
         }
     ]
 }
