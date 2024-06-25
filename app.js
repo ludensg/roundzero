@@ -113,12 +113,18 @@ fetch('performances/list.json')
         }
         
         animationInProgress = false; // Disable popups during animation
+
+                // Update the performed count text after the locations are loaded
+                updatePerformedCount(data.locations.length);
     }).catch(error => console.error('Error loading the data:', error));
 
 
 
-    function baseSetup(locations) {
+function baseSetup(locations) {
         locationGroups = preprocessGroups(groupLocations(locations));
+    
+        // Initialize the marker cluster group
+        var markers = L.markerClusterGroup();
     
         locations.forEach((locationData) => {
             const coords = locationData.coordinates;
@@ -131,14 +137,14 @@ fetch('performances/list.json')
                 popupAnchor: [1, -34]
             });
     
-            const marker = L.marker(coords, {icon: customIcon}).addTo(map);
+            const marker = L.marker(coords, {icon: customIcon});
             marker.popupLocked = false; // property to track the popup's "lock" state
             marker.closeTimeout = null; // Timeout for closing the popup
-
-            const popupContent = createPopupContent(locationData);            
-
+    
+            const popupContent = createPopupContent(locationData);
+    
             marker.bindPopup(popupContent, customOptions);
-
+    
             // Event to open popup on hover
             marker.on('mouseover', function () {
                 if (this.closeTimeout) {
@@ -147,7 +153,7 @@ fetch('performances/list.json')
                 }
                 this.openPopup();
             });
-
+    
             // Event to close popup on mouse out, only if not "locked"
             marker.on('mouseout', function () {
                 if (!this.popupLocked) {
@@ -160,7 +166,7 @@ fetch('performances/list.json')
                     }, 3000); // Delay in milliseconds (3000ms = 3 seconds)
                 }
             });
-
+    
             // Event to "lock" or "unlock" the popup on double click
             marker.on('dblclick', function () {
                 this.popupLocked = !this.popupLocked; // Toggle the "lock" state
@@ -174,22 +180,18 @@ fetch('performances/list.json')
                     this.closePopup();
                 }
             });
-
+    
             // Adjusted for popupopen event
             marker.on('popupopen', function(e) {
                 if (!animationInProgress) {
-                    //const offsetMultiplier = L.Browser.mobile ? 0.32 : 0.42;
-                    //const offset = map.getSize().y * offsetMultiplier;
-                    //const currentZoom = map.getZoom();
-                    //const targetPoint = map.project(e.target.getLatLng(), currentZoom).subtract([0, offset]);
-                    //const targetLatLng = map.unproject(targetPoint, currentZoom);
-                    //map.flyTo(targetLatLng, currentZoom, {animate: true, duration: 0.5});
-
                     setupSlideshow(locationData.id, marker);
                 } else {
                     map.closePopup();
                 }
             });
+    
+            // Add the marker to the marker cluster group
+            markers.addLayer(marker);
         });
     
         sortedLocations = locations.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -199,7 +201,18 @@ fetch('performances/list.json')
         });
     
         drawExtraPolygonsForCloseLocations(locationGroups, locationThresh); // Assumes this function is correctly implemented
+    
+        // Add the marker cluster group to the map
+        map.addLayer(markers);
+    
+        // Update the performed count text
+        updatePerformedCount(locations.length);
     }
+    
+function updatePerformedCount(count) {
+        document.getElementById('performedCount').innerText = `Performed ${count} times`;
+    }
+    
     
 
 function createPopupContent(locationData) {
@@ -369,7 +382,7 @@ function drawShape(locations, groupIndex) {
 
 
     const fillColor = fillColors[groupIndex % fillColors.length];
-    const glowColor = lightenColor(fillColor, 20); // Lighten by 40%
+    const glowColor = lightenColor(fillColor, 0); // Lighten by 40%
     const expansionAmount = 50;
 
         // Hinge logic adjusted to check if followed by another group

@@ -80,34 +80,78 @@
         {
             "id": 8,
             "date": "2024-06-21",
-            "time": "1:30 P.M.",
+            "time": "4:48 P.M.",
             "coordinates": [ 
-                40.739611, -74.008889
+                40.739729958449374, -74.00888435767072
             ],
             "name": "The Whitney Biennial",
-            "description": "Loading",
+            "description": "Featuring the 7th Floor's Men's Restroom at the Whitney Biennial",
             "color": "yellow"
         },
         {
             "id": 9,
             "date": "2024-06-21",
-            "time": "2:30 P.M.",
+            "time": "1:15 P.M.",
             "coordinates": [
-                40.712758, -73.995164
+                40.71302366897195, -73.99512208890134
             ],
-            "name": "56 Henry",
-            "description": "Loading",
+            "name": "56 Henry Gallery",
+            "description": "Featuring Cynthia Talmadge's 'Costa Concordia', a sail-by salute.",
             "color": "yellow"
         },
         {
             "id": 10,
             "date": "2024-06-21",
-            "time": "3:30 P.M.",
+            "time": "2:26 P.M.",
             "coordinates": [
-                40.719593, -73.989197
+                40.71972460686967, -73.9892006600656
             ],
             "name": "Perrotin NY",
-            "description": "Loading",
+            "description": "Featuring Charles Hascoet's 'Kobayashi Maru' exhibition",
+            "color": "yellow"
+        },
+        {
+            "id": 11,
+            "date": "2024-06-23",
+            "time": "4:01 P.M.",
+            "coordinates": [
+                40.72648566502992, -74.00075357355917
+            ],
+            "name": "Perseus Gallery",
+            "description": "",
+            "color": "yellow"
+        },
+        {
+            "id": 12,
+            "date": "2024-06-23",
+            "time": "4:20 P.M.",
+            "coordinates": [
+                40.72644269291644, -74.0007215889006
+            ],
+            "name": "DTR Modern Galleries",
+            "description": "Featuring some Hirst painting",
+            "color": "yellow"
+        },
+        {
+            "id": 13,
+            "date": "2024-06-23",
+            "time": "4:51 P.M.",
+            "coordinates": [
+                40.72554144706799, -74.00129232273147
+            ],
+            "name": "Franklin Bowles Galleries",
+            "description": "",
+            "color": "yellow"
+        },
+        {
+            "id": 14,
+            "date": "2024-06-25",
+            "time": "3:30 P.M.",
+            "coordinates": [
+                40.72502884919721, -74.00131086931712
+            ],
+            "name": "Castle Contemporary Gallery",
+            "description": "~Loading~ dedicated to an old friend: Blind Boy Grunt" ,
             "color": "yellow"
         }
     ]
