@@ -153,6 +153,17 @@
             "name": "Castle Contemporary Gallery",
             "description": "~Loading~ dedicated to an old friend: Blind Boy Grunt" ,
             "color": "yellow"
+        },
+        {
+            "id": 15,
+            "date": "2024-06-28",
+            "time": "3:15 P.M.",
+            "coordinates": [
+                25.833709, -80.200334
+            ],
+            "name": "Nina Johnson Gallery",
+            "description": "~Loading~ featuring Jonathan Rajewski's 'I Trace My Family's Hand with Mine, We Disappear'" ,
+            "color": "yellow"
         }
     ]
 }
