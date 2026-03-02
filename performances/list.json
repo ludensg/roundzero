@@ -151,7 +151,7 @@
                 40.72502884919721, -74.00131086931712
             ],
             "name": "Castle Contemporary Gallery",
-            "description": "~Loading~ dedicated to an old friend: Blind Boy Grunt" ,
+            "description": "Dedicated to an old friend: Blind Boy Grunt" ,
             "color": "yellow"
         },
         {
@@ -162,8 +162,30 @@
                 25.833709, -80.200334
             ],
             "name": "Nina Johnson Gallery",
-            "description": "~Loading~ featuring Jonathan Rajewski's 'I Trace My Family's Hand with Mine, We Disappear'" ,
+            "description": "Featuring Jonathan Rajewski's 'I Trace My Family's Hand with Mine, We Disappear'" ,
             "color": "yellow"
+        },
+        {
+            "id": 16,
+            "date": "2026-02-26",
+            "time": "4:37 P.M.",
+            "coordinates": [
+                25.7859307, -80.1861912
+            ],
+            "name": "Pérez Art Museum Miami",
+            "description": "Featuring Glenn Ligon's 'Notes for a Poem on the Third World (chapter one)'" ,
+            "color": "yellow"
+        },
+        {
+            "id": 17,
+            "date": "2026-03-01",
+            "time": "6:39 P.M.",
+            "coordinates": [
+                40.4160406, -3.6949254
+            ],
+            "name": "Museo Nacional Thyssen-Bornemisza",
+            "description": "Featuring Thomas Cole's 'Expulsion. Moon and Firelight'" ,
+            "color": "navy"
         }
     ]
 }
