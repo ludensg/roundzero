@@ -29,13 +29,14 @@ function colorToFilter(color) {
         orange: 'invert(65%) sepia(95%) saturate(6000%) hue-rotate(14deg) brightness(100%) contrast(100%)',
         pink: 'invert(25%) sepia(95%) saturate(6000%) hue-rotate(330deg) brightness(100%) contrast(100%)',
         purple: 'invert(25%) sepia(95%) saturate(6000%) hue-rotate(260deg) brightness(100%) contrast(100%)',
-        cyan: 'invert(80%) sepia(30%) saturate(7500%) hue-rotate(200deg) brightness(90%) contrast(-185%)',
+        cyan: 'invert(82%) sepia(45%) saturate(6000%) hue-rotate(170deg) brightness(92%) contrast(105%)',
         magenta: 'invert(20%) sepia(100%) saturate(6000%) hue-rotate(300deg) brightness(110%) contrast(100%)',
         lime: 'invert(90%) sepia(70%) saturate(6000%) hue-rotate(72deg) brightness(100%) contrast(100%)',
         brown: 'invert(60%) sepia(100%) saturate(600%) hue-rotate(15deg) brightness(90%) contrast(100%)',
         grey: 'brightness(0%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) contrast(85%)',
         teal: 'invert(50%) sepia(100%) saturate(1500%) hue-rotate(165deg) brightness(80%) contrast(85%)',
         navy: 'invert(30%) sepia(100%) saturate(700%) hue-rotate(210deg) brightness(70%) contrast(83%)',
+        navydark: 'invert(20%) sepia(95%) saturate(4500%) hue-rotate(220deg) brightness(45%) contrast(120%)',
     };    
     return filters[color.toLowerCase()] || ''; // Return the filter or an empty string if color not found
 }
