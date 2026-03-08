@@ -197,6 +197,28 @@
             "name": "Museo de Arte Contemporáneo de Panamá",
             "description": "" ,
             "color": "teal"
+        },
+        {
+            "id": 19,
+            "date": "2026-03-08",
+            "time": "2:20 P.M.",
+            "coordinates": [
+                42.235842, -8.721170
+            ],
+            "name": "Museo de Arte Contemporánea de Vigo (MARCO)",
+            "description": "" ,
+            "color": "red"
+        },
+        {
+            "id": 20,
+            "date": "2026-03-08",
+            "time": "6:25 P.M.",
+            "coordinates": [
+                -34.583988, -58.393112
+            ],
+            "name": "Museo Nacional de Bellas Artes",
+            "description": "" ,
+            "color": "cyan"
         }
     ]
 }
