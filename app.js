@@ -193,9 +193,11 @@ fetch('performances/list.json')
         });
     
         sortedLocations = locations.sort((a, b) => new Date(a.date) - new Date(b.date));
-        const preprocessedGroups = preprocessGroups(locationGroups);
-        preprocessedGroups.forEach((group, index) => {
-            drawShape(group, index); // Assumes drawShape is correctly implemented
+        //const preprocessedGroups = preprocessGroups(locationGroups);
+//        preprocessedGroups.forEach((group, index) => {
+//            drawShape(group, index); // Assumes drawShape is correctly implemented
+        locationGroups.forEach((group) => {
+            drawShape(group); // Assumes drawShape is correctly implemented
         });
     
         drawExtraPolygonsForCloseLocations(locationGroups, locationThresh); // Assumes this function is correctly implemented
@@ -304,45 +306,74 @@ function parseDate(str) {
     return new Date(year, month - 1, day);
 }
 
-function isFollowedByAnotherGroup(locationId, locationGroups) {
-    // Find the index of the group that contains the given locationId
-    let groupIndex = -1;
-    for (let i = 0; i < locationGroups.length; i++) {
-        const group = locationGroups[i];
-        const locationIds = group.map(location => location.id);
-        if (locationIds.includes(locationId)) {
-            groupIndex = i;
-            break;
-        }
-    }
+function isFollowedByAnotherGroup(absoluteBlockIndex, locationGroups) {
+    const groupIndex = locationGroups.findIndex(
+        group => group.absoluteBlockIndex === absoluteBlockIndex
+    );
 
-    // Determine if there's a next group after the current group
-    const hasNextGroup = groupIndex !== -1 && groupIndex < locationGroups.length - 1;
-
-    return hasNextGroup;
+    return groupIndex !== -1 && groupIndex < locationGroups.length - 1;
 }
 
 
+//function calculateBlockIndex(date, startDate) {
+//    const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
+//    const difference = date - startDate;
+//    const daysSinceStart = Math.floor(difference / oneDay);
+//    return Math.floor(daysSinceStart / 10) % 36; // 10-day blocks, repeating every 36 blocks
+//}
 
-function calculateBlockIndex(date, startDate) {
-    const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
+//function groupLocations(locations) {
+//    const startDate = parseDate("2024-03-15");
+//    const groups = Array.from({ length: 36 }, () => []);
+//
+//    locations.forEach(location => {
+//        const locationDate = parseDate(location.date);
+//        const blockIndex = calculateBlockIndex(locationDate, startDate);
+//        groups[blockIndex].push(location);
+//    });
+//
+//    return groups.filter(group => group.length > 0); // Filter out empty groups
+//}
+
+const ORIGIN_DATE = "2024-03-15";
+const DAYS_PER_BLOCK = 10;
+const BLOCKS_PER_MEGABLOCK = 36;
+
+function calculateAbsoluteBlockIndex(date, startDate) {
+    const oneDay = 24 * 60 * 60 * 1000;
     const difference = date - startDate;
     const daysSinceStart = Math.floor(difference / oneDay);
-    return Math.floor(daysSinceStart / 10) % 36; // 10-day blocks, repeating every 36 blocks
+    return Math.floor(daysSinceStart / DAYS_PER_BLOCK);
+}
+
+function calculateCyclicalBlockIndex(absoluteBlockIndex) {
+    return absoluteBlockIndex % BLOCKS_PER_MEGABLOCK;
 }
 
 function groupLocations(locations) {
-    const startDate = parseDate("2024-03-15");
-    const groups = Array.from({ length: 36 }, () => []);
+    const startDate = parseDate(ORIGIN_DATE);
+    const groupsByAbsoluteBlock = new Map();
 
     locations.forEach(location => {
         const locationDate = parseDate(location.date);
-        const blockIndex = calculateBlockIndex(locationDate, startDate);
-        groups[blockIndex].push(location);
+        const absoluteBlockIndex = calculateAbsoluteBlockIndex(locationDate, startDate);
+        const cyclicalBlockIndex = calculateCyclicalBlockIndex(absoluteBlockIndex);
+
+        if (!groupsByAbsoluteBlock.has(absoluteBlockIndex)) {
+            groupsByAbsoluteBlock.set(absoluteBlockIndex, {
+                absoluteBlockIndex,
+                cyclicalBlockIndex,
+                locations: []
+            });
+        }
+
+        groupsByAbsoluteBlock.get(absoluteBlockIndex).locations.push(location);
     });
 
-    return groups.filter(group => group.length > 0); // Filter out empty groups
+    return Array.from(groupsByAbsoluteBlock.values())
+        .sort((a, b) => a.absoluteBlockIndex - b.absoluteBlockIndex);
 }
+
 
 function lightenColor(color, percent) {
     var num = parseInt(color.replace("#",""),16),
@@ -354,111 +385,104 @@ function lightenColor(color, percent) {
 }
 
 
-function drawShape(locations, groupIndex) {
-    const getCssVariable = (varName) => getComputedStyle(document.documentElement).getPropertyValue(varName);
+function drawShape(group) {
+    const locations = group.locations;
+    const groupIndex = group.cyclicalBlockIndex;
+
+    const getCssVariable = (varName) =>
+        getComputedStyle(document.documentElement).getPropertyValue(varName);
 
     const fillColors = [];
-    for (let i = 1; i <= locationGroups.length; i++) {
-        fColor = i % 8;
-        if(extraPoly) {fillColors.push(getCssVariable(`--bright-polygon-color-${fColor}`).trim());  }
-        else{ fillColors.push(getCssVariable(`--polygon-color-${fColor}`).trim()); }
+    for (let i = 1; i <= BLOCKS_PER_MEGABLOCK; i++) {
+        const fColor = i % 8;
+        if (extraPoly) {
+            fillColors.push(getCssVariable(`--bright-polygon-color-${fColor}`).trim());
+        } else {
+            fillColors.push(getCssVariable(`--polygon-color-${fColor}`).trim());
+        }
     }
-    
-    // Optionally, create a glow effect for each polygon
-    //createGlowPolygon(coords, 0.01, { color: 'gold', fillColor: 'gold', fillOpacity: 0.3, weight: 0 });
-
 
     const fillColor = fillColors[groupIndex % fillColors.length];
-    const glowColor = lightenColor(fillColor, 20); // Lighten by 40%
+    const glowColor = lightenColor(fillColor, 20);
     const expansionAmount = 50;
 
-        // Hinge logic adjusted to check if followed by another group
-        const isHinge = locations.length === 1 && isFollowedByAnotherGroup(locations[0].id, locationGroups);
-        if (isHinge && !notAlone) {
-            // Logic for hinge when not followed by another group
-            // Simulating an outer glow effect for hinge circles
-            // Draw larger outer circle for glow effect
-            var location = locations[0].coordinates;
-            L.circle(location, {
+    const isHinge = locations.length === 1 && isFollowedByAnotherGroup(group.absoluteBlockIndex, locationGroups);
+
+    if (isHinge && !notAlone) {
+        const location = locations[0].coordinates;
+        L.circle(location, {
+            color: glowColor,
+            fillColor: glowColor,
+            fillOpacity: 0.3,
+            radius: 50 + expansionAmount,
+            weight: 0
+        }).addTo(map);
+
+        L.circle(location, {
+            color: fillColor,
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 30,
+            weight: 2
+        }).addTo(map);
+    } else {
+        if (locations.length === 1 && !notAlone && !isHinge) {
+            const location = locations[0].coordinates;
+
+            addPulsingCircle(map, location, fillColor);
+            setInterval(() => {
+                addPulsingCircle(map, location, fillColor);
+            }, 2000);
+        } else if (locations.length === 2) {
+            const points = locations.map(location => location.coordinates);
+
+            L.polyline(points, {
                 color: glowColor,
-                fillColor: glowColor,
-                fillOpacity: 0.3,
-                radius: 50 + expansionAmount,
+                opacity: 0.3,
                 weight: 0
             }).addTo(map);
-            // Draw smaller filled circle
-            L.circle(location, {
+
+            L.polyline(points, {
                 color: fillColor,
-                fillColor: 'transparent',
-                fillOpacity: 0.5,
-                radius: 30, // Smaller inner circle
-                weight: 2
+                opacity: 0.8,
+                weight: 1.3
             }).addTo(map);
-        } else  {
-            if (locations.length === 1 && !notAlone && !isHinge) {
-                    var location = locations[0].coordinates;
-                
-                    // Trigger the first pulse immediately
-                    addPulsingCircle(map, location, fillColor);
-                
-                    // Start a new pulse every 2 seconds
-                    setInterval(() => {
-                        addPulsingCircle(map, location, fillColor);
-                    }, 2000);           
-                 } else if (locations.length === 2) {
-                // Draw a glowing line for two locations
-                var points = locations.map(location => location.coordinates);
-                L.polyline(points, {
-                    color: glowColor, // Glowing color
-                    opacity: 0.3,
-                    weight: 0 // Thicker line for glow effect
-                }).addTo(map);
-                // Draw the actual line
-                L.polyline(points, {
-                    color: fillColor, 
-                    opacity: 0.8,
-                    weight: 1.3
-                }).addTo(map);
-            } else if (locations.length > 2) {
-                // Draw a glowing polygon
-                var points = locations.map(location => location.coordinates);
-                // Glow effect
-                L.polygon(points, {
-                    color: glowColor,
-                    fillColor: glowColor,
-                    fillOpacity: 0.2,
-                    opacity: 0.0,
-                    weight: 0 // Thicker border for glow effect
-                }).addTo(map);
-                // Actual polygon
-                L.polygon(points, {
-                    color: 'grey',
-                    fillColor: fillColor,
-                    fillOpacity: 0.6,
-                    weight: 0.5
-                }).addTo(map);
-            }
+        } else if (locations.length > 2) {
+            const points = locations.map(location => location.coordinates);
+
+            L.polygon(points, {
+                color: glowColor,
+                fillColor: glowColor,
+                fillOpacity: 0.2,
+                opacity: 0.0,
+                weight: 0
+            }).addTo(map);
+
+            L.polygon(points, {
+                color: 'grey',
+                fillColor: fillColor,
+                fillOpacity: 0.6,
+                weight: 0.5
+            }).addTo(map);
+        }
     }
 }
 
 function preprocessGroups(locationGroups) {
-    // Assume locationGroups is an array of arrays, each containing location objects
-
     locationGroups.forEach((group, index) => {
-        if (group.length === 1) { // This is a potential hinge
-            const hingeLocation = group[0];
-            // Check and connect with the previous group if available
-            if (index > 0 && locationGroups[index - 1].length > 1) {
-                locationGroups[index - 1].push(hingeLocation);
+        if (group.locations.length === 1) {
+            const hingeLocation = group.locations[0];
+
+            if (index > 0 && locationGroups[index - 1].locations.length > 1) {
+                locationGroups[index - 1].locations.push(hingeLocation);
             }
-            // Check and connect with the next group if available
-            if (index < locationGroups.length - 1 && locationGroups[index + 1].length > 1) {
-                locationGroups[index + 1].unshift(hingeLocation);
+
+            if (index < locationGroups.length - 1 && locationGroups[index + 1].locations.length > 1) {
+                locationGroups[index + 1].locations.unshift(hingeLocation);
             }
         }
     });
 
-    // Return potentially modified groups with hinges properly integrated
     return locationGroups;
 }
 
@@ -501,13 +525,16 @@ function areLocationsClose(loc1, loc2, thresholdInKm) {
 function findCloseLocationGroups(locationGroups, thresholdInKm) {
     let closeGroups = [];
 
-    locationGroups.forEach((group, index) => {
-        // Temporary array to hold locations that are close to each other within this group
+    locationGroups.forEach((group) => {
         let tempCloseGroup = [];
-        
-        group.forEach((location, locIndex) => {
-            group.forEach((otherLocation, otherLocIndex) => {
-                if (locIndex !== otherLocIndex && areLocationsClose(location.coordinates, otherLocation.coordinates, thresholdInKm)) {
+        const locations = group.locations;
+
+        locations.forEach((location, locIndex) => {
+            locations.forEach((otherLocation, otherLocIndex) => {
+                if (
+                    locIndex !== otherLocIndex &&
+                    areLocationsClose(location.coordinates, otherLocation.coordinates, thresholdInKm)
+                ) {
                     if (!tempCloseGroup.includes(location)) {
                         tempCloseGroup.push(location);
                     }
@@ -519,7 +546,11 @@ function findCloseLocationGroups(locationGroups, thresholdInKm) {
         });
 
         if (tempCloseGroup.length > 0) {
-            closeGroups.push(tempCloseGroup);
+            closeGroups.push({
+                absoluteBlockIndex: group.absoluteBlockIndex,
+                cyclicalBlockIndex: group.cyclicalBlockIndex,
+                locations: tempCloseGroup
+            });
         }
     });
 
@@ -533,7 +564,7 @@ function drawExtraPolygonsForCloseLocations(locationGroups, thresholdInKm) {
     extraPoly = true;
     closeGroups.forEach((group, index) => {
         // Assuming drawShape can handle drawing polygons for a group of locations
-        drawShape(group, index); // This uses the existing drawShape function; adjust as needed
+        drawShape(group); // This uses the existing drawShape function; adjust as needed
     });
     extraPoly = false;
 }
