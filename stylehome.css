@@ -373,3 +373,30 @@ img.full-screen {
     }
   }
 
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 8px rgba(255,255,255,0.25),
+            0 0 16px rgba(156,39,176,0.35);
+    }
+    50% {
+        box-shadow:
+            0 0 14px rgba(255,255,255,0.45),
+            0 0 28px rgba(156,39,176,0.55);
+    }
+}
+
+@keyframes colorBlink {
+    0%,100% {
+        background-color: #281fa2;
+    }
+    50% {
+        background-color: #4b3cff;
+    }
+}
+
+.buttons-container .fancy-button:first-child {
+    animation: pulseGlow 2.5s ease-in-out infinite,
+               colorBlink 3s ease-in-out infinite;
+}

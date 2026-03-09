@@ -1,124 +1,103 @@
-// Define the isLeapYear function to check for leap years
-const isLeapYear = (year) => new Date(year, 1, 29).getMonth() === 1;
+// ==============================
+// BLOCK CONFIGURATION
+// ==============================
 
-// Fixed event moment:
-// 14:00 CET on 2026-03-09 = 13:00 UTC
-const TARGET_EVENT_UTC = new Date(Date.UTC(2026, 2, 9, 13, 0, 0));
+// The block system starts on this calendar date.
+const START_YEAR = 2024;
+const START_MONTH_INDEX = 2; // March = 2 because JS months are 0-based
+const START_DAY = 15;
 
-// Helper function to validate date
-function isValidDate(dateString) {
-    const dateParts = dateString.split("-");
-    const year = parseInt(dateParts[0], 10);
-    const month = parseInt(dateParts[1], 10) - 1;
-    const day = parseInt(dateParts[2], 10);
-    const dateObj = new Date(year, month, day);
-    return dateObj.getFullYear() === year && dateObj.getMonth() === month && dateObj.getDate() === day;
+// Locked display date for the block values
+const LOCKED_YEAR = 2026;
+const LOCKED_MONTH_INDEX = 2; // March
+const LOCKED_DAY = 9;
+
+// Exact text you asked to display
+const LOCKED_DISPLAY_TEXT = "Locked at 14:00 CET March 9th, 2026";
+
+// ==============================
+// DATE HELPERS
+// ==============================
+
+// Create a date at LOCAL midnight.
+// This avoids UTC conversion problems when showing the user's actual date.
+function makeLocalDate(year, monthIndex, day) {
+    return new Date(year, monthIndex, day, 0, 0, 0, 0);
 }
 
-// Calculate block info based on the current date
-function calculateCurrentBlockInfo() {
-    const startDate = new Date('2024-03-15');
-    const currentDate = new Date();
-    return calculateBlockInfo(currentDate.toISOString().split('T')[0], startDate);
+// Return a copy of a Date normalized to LOCAL midnight.
+function startOfLocalDay(date) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
 }
 
-// Function to calculate the start time of the next block
-function getNextBlockStartTime(currentDate, daysUntilNextBlock) {
-    const nextBlockDate = new Date(currentDate.getTime() + daysUntilNextBlock * 24 * 60 * 60 * 1000);
-    nextBlockDate.setHours(0, 0, 0, 0); // Normalize to the start of the next block day
-    return nextBlockDate;
+// Difference in whole calendar days between two LOCAL dates.
+function diffInLocalDays(laterDate, earlierDate) {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const later = startOfLocalDay(laterDate);
+    const earlier = startOfLocalDay(earlierDate);
+    return Math.round((later - earlier) / oneDay);
 }
 
-// Main function adapted for web usage
-function calculateBlockInfo(inputDateStr, startDate) {
-    if (!isValidDate(inputDateStr)) {
-        return "Invalid date input. Please enter a valid date in the format YYYY-MM-DD.";
-    }
+// Nice local display for the current user.
+function formatUserLocalDate(date) {
+    return date.toLocaleDateString(undefined, {
+        weekday: "short",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
+}
 
-    const inputDate = new Date(inputDateStr);
-    const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
-    let daysDifference = Math.round((inputDate - startDate) / oneDay);
+// ==============================
+// BLOCK CALCULATION
+// ==============================
+
+function calculateBlockInfoFromDate(inputDate) {
+    const startDate = makeLocalDate(START_YEAR, START_MONTH_INDEX, START_DAY);
 
     const daysPerBlock = 10;
     const blocksPerMegaBlock = 36;
     const daysPerMegaBlock = daysPerBlock * blocksPerMegaBlock;
 
-    let totalDaysFromEpoch = daysDifference;
+    const totalDaysFromEpoch = diffInLocalDays(inputDate, startDate);
+
     let megaBlock = Math.floor(totalDaysFromEpoch / daysPerMegaBlock) + (totalDaysFromEpoch >= 0 ? 1 : 0);
+
     let dayWithinMegaBlock = totalDaysFromEpoch % daysPerMegaBlock;
-    if (dayWithinMegaBlock < 0) dayWithinMegaBlock += daysPerMegaBlock;
+    if (dayWithinMegaBlock < 0) {
+        dayWithinMegaBlock += daysPerMegaBlock;
+    }
 
-    let block = Math.floor(dayWithinMegaBlock / daysPerBlock) + 1;
-    let miniBlock = dayWithinMegaBlock % daysPerBlock + 1;
-
-    const daysUntilNextBlock = daysPerBlock - (dayWithinMegaBlock % daysPerBlock);
-
-    // Calculate the start time of the next block
-    const nextBlockStartTime = getNextBlockStartTime(inputDate, daysUntilNextBlock);
+    const block = Math.floor(dayWithinMegaBlock / daysPerBlock) + 1;
+    const miniBlock = (dayWithinMegaBlock % daysPerBlock) + 1;
 
     return {
-        date: inputDate.toDateString(),
-        megaBlock: megaBlock,
-        block: block,
-        miniBlock: miniBlock,
-        daysUntilNextBlock: daysUntilNextBlock,
-        nextBlockStartTime: nextBlockStartTime
+        megaBlock,
+        block,
+        miniBlock
     };
 }
 
-// Add blinking to the counter once the target local time is reached
-function triggerCounterBlink() {
-    const countdownDisplay = document.getElementById('countdown');
-    if (!countdownDisplay) return;
+// ==============================
+// DISPLAY
+// ==============================
 
-    countdownDisplay.classList.add('blink-counter');
-}
-
-// Function to update the countdown live
-function updateCountdown(nextBlockStartTime) {
-    const now = new Date();
-
-    // This is the same absolute moment everywhere,
-    // but displayed/checked in the user's own local timezone automatically.
-    const localTargetTime = TARGET_EVENT_UTC;
-
-    // If the target event has arrived, make the counter blink
-    if (now >= localTargetTime) {
-        triggerCounterBlink();
-    }
-
-    const timeDiff = nextBlockStartTime - now;
-
-    // Prevent weird negative countdown display after expiration
-    const safeDiff = Math.max(0, timeDiff);
-
-    // Calculate time components
-    const days = Math.floor(safeDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((safeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((safeDiff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((safeDiff % (1000 * 60)) / 1000);
-
-    // Update HTML
-    const countdownDisplay = document.getElementById('countdown');
-    if (countdownDisplay) {
-        countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    // Update the countdown every second
-    setTimeout(() => updateCountdown(nextBlockStartTime), 1000);
-}
-
-// Display function now also initiates countdown
 function displayBlockInfo() {
-    const info = calculateCurrentBlockInfo();
+    // 1. Show the REAL current local date for the user opening the page
+    const now = new Date();
+    document.getElementById("currentDate").innerText = formatUserLocalDate(now);
 
-    document.getElementById('currentDate').innerText = info.date;
-    document.getElementById('megaBlock').innerText = `${info.megaBlock}`;
-    document.getElementById('block').innerText = `${info.block}`;
-    document.getElementById('miniBlock').innerText = `${info.miniBlock}`;
+    // 2. Freeze Mega-block / Block / Mini-block to the locked date
+    const lockedDate = makeLocalDate(LOCKED_YEAR, LOCKED_MONTH_INDEX, LOCKED_DAY);
+    const lockedInfo = calculateBlockInfoFromDate(lockedDate);
 
-    updateCountdown(info.nextBlockStartTime);
+    document.getElementById("megaBlock").innerText = `${lockedInfo.megaBlock}`;
+    document.getElementById("block").innerText = `${lockedInfo.block}`;
+    document.getElementById("miniBlock").innerText = `${lockedInfo.miniBlock}`;
+
+    // 3. Replace countdown with fixed lock text
+    document.getElementById("countdown").innerText = LOCKED_DISPLAY_TEXT;
 }
 
-// Initial display
+// Initial render
 displayBlockInfo();
