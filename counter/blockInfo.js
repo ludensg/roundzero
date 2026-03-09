@@ -1,6 +1,10 @@
 // Define the isLeapYear function to check for leap years
 const isLeapYear = (year) => new Date(year, 1, 29).getMonth() === 1;
 
+// Fixed event moment:
+// 14:00 CET on 2026-03-09 = 13:00 UTC
+const TARGET_EVENT_UTC = new Date(Date.UTC(2026, 2, 9, 13, 0, 0));
+
 // Helper function to validate date
 function isValidDate(dateString) {
     const dateParts = dateString.split("-");
@@ -24,7 +28,6 @@ function getNextBlockStartTime(currentDate, daysUntilNextBlock) {
     nextBlockDate.setHours(0, 0, 0, 0); // Normalize to the start of the next block day
     return nextBlockDate;
 }
-
 
 // Main function adapted for web usage
 function calculateBlockInfo(inputDateStr, startDate) {
@@ -63,21 +66,43 @@ function calculateBlockInfo(inputDateStr, startDate) {
     };
 }
 
+// Add blinking to the counter once the target local time is reached
+function triggerCounterBlink() {
+    const countdownDisplay = document.getElementById('countdown');
+    if (!countdownDisplay) return;
+
+    countdownDisplay.classList.add('blink-counter');
+}
 
 // Function to update the countdown live
 function updateCountdown(nextBlockStartTime) {
     const now = new Date();
+
+    // This is the same absolute moment everywhere,
+    // but displayed/checked in the user's own local timezone automatically.
+    const localTargetTime = TARGET_EVENT_UTC;
+
+    // If the target event has arrived, make the counter blink
+    if (now >= localTargetTime) {
+        triggerCounterBlink();
+    }
+
     const timeDiff = nextBlockStartTime - now;
 
+    // Prevent weird negative countdown display after expiration
+    const safeDiff = Math.max(0, timeDiff);
+
     // Calculate time components
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+    const days = Math.floor(safeDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((safeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((safeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((safeDiff % (1000 * 60)) / 1000);
 
     // Update HTML
     const countdownDisplay = document.getElementById('countdown');
-    countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    if (countdownDisplay) {
+        countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
 
     // Update the countdown every second
     setTimeout(() => updateCountdown(nextBlockStartTime), 1000);
@@ -86,16 +111,14 @@ function updateCountdown(nextBlockStartTime) {
 // Display function now also initiates countdown
 function displayBlockInfo() {
     const info = calculateCurrentBlockInfo();
-        document.getElementById('currentDate').innerText = info.date;
-        document.getElementById('megaBlock').innerText = `${info.megaBlock}`;
-        document.getElementById('block').innerText = `${info.block}`;
-        document.getElementById('miniBlock').innerText = `${info.miniBlock}`;
-        // The updateCountdown function already targets the countdown ID correctly.
+
+    document.getElementById('currentDate').innerText = info.date;
+    document.getElementById('megaBlock').innerText = `${info.megaBlock}`;
+    document.getElementById('block').innerText = `${info.block}`;
+    document.getElementById('miniBlock').innerText = `${info.miniBlock}`;
 
     updateCountdown(info.nextBlockStartTime);
 }
-
-//document.getElementById('refreshButton').addEventListener('click', displayBlockInfo);
 
 // Initial display
 displayBlockInfo();

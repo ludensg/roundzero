@@ -317,3 +317,13 @@
 .fancy-button:hover {
     background-color: #b08b27;
 }
+
+.blink-counter {
+    animation: counterBlink 1s steps(2, start) infinite;
+}
+
+@keyframes counterBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+}

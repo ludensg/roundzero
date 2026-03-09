@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Round Zero - Main Menu</title>
+    <link rel="stylesheet" href="stylehome.css">
+    <style>
+        .text-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 2px solid white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 0 10px #fff;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: justify;
+            position: relative;
+            z-index: 10;
+            color: white;
+            max-height: 80vh; /* Ensures the text box fits within the screen */
+            overflow-y: auto; /* Enables vertical scrolling */
+        }
+        .return-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+    <img src="worldmap.webp" alt="worldmap" class="full-screen">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -1s, -0.25s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -2s, -0.5s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -10s, -16s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -3s, -4s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -5s, -6s;">
+    <img src="worldmap.webp" alt="worldmap" class="full-screen" style="animation-delay: -6s, -8s;">
+
+    <div class="crt">
+        <div class="game-of-life" style="opacity: .5;"></div>
+        <div class="hero-title">
+            <span>R</span><span>o</span><span>u</span><span>n</span><span>d</span> <span>Z</span><span>e</span><span>r</span><span>o</span>
+        </div>
+        <div id="hands-container" style="overflow: visible;">
+            <div class="hand left-hand"></div>
+            <div class="hand right-hand"></div>
+        </div>
+        <div class="text-box" id="textBox">
+            <button class="fancy-button" style="z-index: 100;" onclick="window.location.href='index.html'">Return</button>
+
+            <p>
+                <h1>Submissions Are Closed</h1>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Submissions to participate in Round Zero were open from March 15th, 2024, until today: March 9th, 2026. <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The map for Round Zero is now frozen, to coincide with the deadline for the Prix Ars Electronica open call.<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For more information, consult the video below:<br><br>
+
+                <div style="display:flex; justify-content:center; margin-top:20px;">
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/FgwKJf6uXm0"
+                        title="Round Zero Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            
+            </p>
+        </div>
+        <div class="credit-text">
+            <a href="https://ludensg.com" target="_blank" id="ludenslink">
+                <p style="background-color: beige; opacity: 35%; font-size: smaller;">A Ludens-G Game</p>
+            </a>
+        </div>
+    </div>
+    
+</body>
+</html>
